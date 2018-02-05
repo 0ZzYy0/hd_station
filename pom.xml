@@ -38,7 +38,7 @@
 		<qcloud.cos.version>4.4</qcloud.cos.version>
 
 		<!--wagon plugin 配置-->
-		<service-path>/work/one</service-path>
+		<service-path>/work/hd</service-path>
 		<pack-name>${project.artifactId}.jar</pack-name>
 		<remote-addr>127.0.0.1:22</remote-addr>
 		<remote-username>root</remote-username>
@@ -168,12 +168,6 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<!-- oracle数据库驱动 -->
-		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc</artifactId>
-			<version>6.0</version>
-		</dependency>
 		<dependency>  
         	<groupId>dom4j</groupId>  
         	<artifactId>dom4j</artifactId>  
@@ -242,8 +236,8 @@
 					<url><![CDATA[scp://${remote-username}:${remote-passwd}@${remote-addr}${service-path}]]></url>
 					<commands>
 						<command>pkill -f ${pack-name}</command>
-						<command>rm -f ${service-path}/one.log</command>
-						<command><![CDATA[nohup java -jar ${service-path}/${pack-name} > ${service-path}/one.log 2>&1 & ]]></command>
+						<command>rm -f ${service-path}/hd.log</command>
+						<command><![CDATA[nohup java -jar ${service-path}/${pack-name} > ${service-path}/hd.log 2>&1 & ]]></command>
 						<command><![CDATA[netstat -nptl]]></command>
 						<command><![CDATA[ps -ef | grep java | grep -v grep]]></command>
 					</commands>
