@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>首页</title>
+		<#include "/header.html">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	    <link rel="stylesheet" href="${request.contextPath}/statics/css/bootstrap.min.css">
+	    <link rel="stylesheet" href="${request.contextPath}/statics/css/font-awesome.min.css">
+	    <link rel="stylesheet" href="${request.contextPath}/statics/css/AdminLTE.min.css">
+	    <link rel="stylesheet" href="${request.contextPath}/statics/css/all-skins.min.css">
+	    
+	    <link rel="stylesheet" href="${request.contextPath}/statics/css/bootstrap-table.min.css">
+		<link rel="stylesheet" href="${request.contextPath}/statics/plugins/treegrid/jquery.treegrid.css">
+		<script src="${request.contextPath}/statics/libs/bootstrap-table.min.js"></script>
+		<script src="${request.contextPath}/statics/plugins/treegrid/jquery.treegrid.min.js"></script>
+		<script src="${request.contextPath}/statics/plugins/treegrid/jquery.treegrid.bootstrap3.js"></script>
+		<script src="${request.contextPath}/statics/plugins/treegrid/jquery.treegrid.extension.js"></script>
+		<script src="${request.contextPath}/statics/plugins/treegrid/tree.table.js"></script>
+	    
+	    
+	    
+		<style type="text/css">
+			.info-box-text {
+				white-space: normal !important;
+			}
+			
+			.btn-app {
+				margin: 10px;
+				border:0px;
+				color:window;
+			}
+		</style>
+	</head>
+
+	<body>
+	<div class="content-wrapper" id="rrapp" style="margin-left: 0px;">
+	<section class="content">
+	<div class="row" style="border: none">
+        <div class="col-md-12">
+           <div class="box box-widget widget-user">
+            <div class="widget-user-header bg-aqua-active">
+              <h3 class="widget-user-username">{{user.nickName}}</h3>
+              <h5 class="widget-user-desc">抚顺社区</h5>
+            </div>
+            <div class="widget-user-image">
+              <img class="img-circle" :src="user.headImgUrl" @click="goUrl">
+            </div>
+            <div class="box-footer" style="height: 40px;">
+            </div>
+            <div class="box box-widget">
+            <div class="box-body">
+              <a class="btn btn-app" style="background-color: #39CCCC;">
+                <i class="fa fa-users" @click="toMyMemberList"></i> 家庭成员
+              </a>
+              <a class="btn btn-app" style="background-color: #f39c12;">
+                <i class="fa fa-book" @click="toMyInfo"></i> 个人信息
+              </a>
+              <a class="btn btn-app" style="background-color: #f56954;">
+                <i class="fa fa-user-md"></i> 普查结果
+              </a>
+             </div>
+		     <div class="box-footer">
+              <ul class="products-list product-list-in-box">
+                <li class="item">
+                  <div class="product-img">
+                    <img src="${request.contextPath}/statics/images/swt7.png" alt="Product Image">
+                  </div>
+                  <div class="product-info">
+                    <a href="javascript:void(0)" class="product-title">最新通知
+                      <span class="label label-warning pull-right">2018-01-09</span></a>
+                        <span class="product-description">
+                          牙防工程进度报告...
+                        </span>
+                  </div>
+                </li>
+                <!-- /.item -->
+                <li class="item">
+                  <div class="product-img">
+                    <img src="${request.contextPath}/statics/images/swt6.png">
+                  </div>
+                  <div class="product-info">
+                    <a href="javascript:void(0)" class="product-title">通知
+                      <span class="label label-info pull-right">2018-01-01</span></a>
+                        <span class="product-description">
+                          最新公告1
+                        </span>
+                  </div>
+                </li>
+                <!-- /.item -->
+                <li class="item">
+                  <div class="product-img">
+                    <img src="${request.contextPath}/statics/images/swt3.png">
+                  </div>
+                  <div class="product-info">
+                    <a href="javascript:void(0)" class="product-title">通知
+                    	<span class="label label-danger pull-right">2018-01-03</span>
+                    </a>
+                        <span class="product-description">
+                         最新公告2
+                        </span>
+                  </div>
+                </li>
+                <!-- /.item -->
+              </ul>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </section>
+      </div>
+      
+      <script src="${request.contextPath}/statics/libs/jquery.min.js"></script>
+	  <script src="${request.contextPath}/statics/libs/vue.min.js"></script>
+	  <script src="${request.contextPath}/statics/libs/router.js"></script>
+	  <script src="${request.contextPath}/statics/libs/bootstrap.min.js"></script>
+	  <script src="${request.contextPath}/statics/libs/app.js"></script>
+	  <script src="${request.contextPath}/statics/plugins/layer/layer.js"></script>
+		<script>
+		$(document).ready(function() {
+		});
+		var vm = new Vue({
+			el:'#rrapp',
+			data:{
+				user:{}
+			},
+			methods: {
+				getUser: function(){
+					$.getJSON("${request.contextPath}/sys/user/info?_"+$.now(), function(r){
+						vm.user = r.user;
+					});
+				},
+				goUrl:function(){
+					parent.location.href ='my_info.html';
+				},
+				toMyInfo: function(){
+					window.location.href = "${request.contextPath}/baspatient/toMyInfo";
+		        },
+		        toMyMemberList: function(){
+		        	window.location.href = "${request.contextPath}/baspatmember/toMyMemberList";
+		        }
+			},
+			created: function(){
+				this.getUser();
+			}
+		});
+		</script>
+	</body>
+</html>

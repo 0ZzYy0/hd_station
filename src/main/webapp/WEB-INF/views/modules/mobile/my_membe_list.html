@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>家庭成员</title>
+		<#include "/header.html">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!-- <script src="../core/plugins/typeahead/bootstrap3-typeahead.min.js"></script> -->
+		<script src="${request.contextPath}/statics/libs/app.min.js"></script>
+		
+		<link rel="stylesheet" href="${request.contextPath}/statics/css/bootstrap-table.min.css">
+		<link rel="stylesheet" href="${request.contextPath}/statics/css/bootstrap.min.css">
+		<link rel="stylesheet" href="${request.contextPath}/statics/css/font-awesome.min.css">
+		<link rel="stylesheet" href="${request.contextPath}/statics/css/AdminLTE.min.css">
+		<link rel="stylesheet" href="${request.contextPath}/statics/css/all-skins.min.css">
+		<link rel="stylesheet" href="${request.contextPath}/statics/plugins/treegrid/jquery.treegrid.css">
+		
+		<script src="${request.contextPath}/statics/plugins/treegrid/jquery.treegrid.min.js"></script>
+		<script src="${request.contextPath}/statics/plugins/treegrid/jquery.treegrid.bootstrap3.js"></script>
+		<script src="${request.contextPath}/statics/plugins/treegrid/jquery.treegrid.extension.js"></script>
+		<script src="${request.contextPath}/statics/plugins/treegrid/tree.table.js"></script>
+		
+		<script src="${request.contextPath}/statics/libs/jquery.min.js"></script>
+		<script src="${request.contextPath}/statics/libs/vue.min.js"></script>
+		<script src="${request.contextPath}/statics/libs/router.js"></script>
+		<script src="${request.contextPath}/statics/libs/bootstrap.min.js"></script>
+		<script src="${request.contextPath}/statics/libs/app.js"></script>
+		<script src="${request.contextPath}/statics/plugins/layer/layer.js"></script>
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	</head>
+	<body>
+<div id="my_membe_list" class="content-wrapper" style="margin-left: 0px;">
+<section class="content">
+	<div class="box box-warning">
+      <div class="box-header with-border">
+        <div class="pull-left">
+       	 <button type="button" class="btn btn-box-tool" onclick="goList();"><i class="fa fa-chevron-left"></i></button>
+        </div>
+       	<div class="pull-right">
+       	 <button type="button" class="btn btn-box-tool" onclick="info()">添加成员</button>
+        </div>
+      </div>	  
+	  <div class="box-body no-padding">
+      	<ul class="nav nav-stacked" id="patList">
+        </ul>
+	  </div>
+	</div>
+</section>
+</div>
+<script>
+function goDetail(patId,patName,createTime,remark){
+	window.location.href = "bs_history.html?patId="+patId+"&patName="+patName+"&createTime="+createTime+"&remark="+remark+"&random="+Math.random();
+}
+function goList(){
+	window.location.href = baseURL + "modules/mobile/home.html";
+}
+function info(memberId){
+	window.location.href = "${request.contextPath}/baspatmember/toMyMemberInfo?memberId="+memberId;
+}
+
+var vm = new Vue({
+	el:'#my_membe_list',
+	data:{
+		user:{}
+	},
+	mounted: function () {
+		  this.$nextTick(function () {
+			  this.getList();
+		  });
+	},
+	methods: {
+		getUser: function(){
+			$.getJSON("${request.contextPath}/sys/user/info?_"+$.now(), function(r){
+				vm.user = r.user;
+			});
+		},
+		goUrl:function(){
+			parent.location.href ='my_info.html';
+		},
+		toMyInfo: function(){
+			window.location.href = "${request.contextPath}/baspatient/toMyInfo";
+        },
+        getList: function(){
+         	$.ajax({
+        		type: "GET",
+        		url: baseURL + "baspatmember/getMyMember",
+        		type : 'post',
+        		success : function(data) {
+        			$("#patList").html("");
+        			var htmls = '';
+        			for ( var i = 0; i < data.length; i++) {
+        				htmls += "<li>";
+        				htmls += "	<a href=\"javascript:void(0);\" onclick=\"info("+data[i].memberId+")\">";
+        				htmls += 		data[i].memberName;
+        				htmls += "		<span class=\"pull-right badge bg-blue\">11111111</span>";
+        				htmls += "	</a>";
+        				htmls += "</li>";
+        			}
+        			$("#patList").append(htmls);
+        		}
+        	});
+        }
+	}
+});
+</script>
+	</body>
+</html>

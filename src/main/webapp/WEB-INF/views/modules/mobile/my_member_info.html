@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>个人信息</title>
+<#include "/header.html">
+<meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link rel="stylesheet" href="${request.contextPath}/statics/css/bootstrap-table.min.css">
+<link rel="stylesheet" href="${request.contextPath}/statics/css/bootstrap.min.css">
+<link rel="stylesheet" href="${request.contextPath}/statics/css/font-awesome.min.css">
+<link rel="stylesheet" href="${request.contextPath}/statics/css/AdminLTE.min.css">
+<link rel="stylesheet" href="${request.contextPath}/statics/css/all-skins.min.css">
+<link rel="stylesheet" href="${request.contextPath}/statics/plugins/treegrid/jquery.treegrid.css">
+
+<script src="${request.contextPath}/statics/plugins/treegrid/jquery.treegrid.min.js"></script>
+<script src="${request.contextPath}/statics/plugins/treegrid/jquery.treegrid.bootstrap3.js"></script>
+<script src="${request.contextPath}/statics/plugins/treegrid/jquery.treegrid.extension.js"></script>
+<script src="${request.contextPath}/statics/plugins/treegrid/tree.table.js"></script>
+
+<script src="${request.contextPath}/statics/libs/jquery.min.js"></script>
+<script src="${request.contextPath}/statics/libs/vue.min.js"></script>
+<script src="${request.contextPath}/statics/libs/router.js"></script>
+<script src="${request.contextPath}/statics/libs/bootstrap.min.js"></script>
+<script src="${request.contextPath}/statics/libs/app.js"></script>
+<script src="${request.contextPath}/statics/plugins/layer/layer.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+<body>
+
+<div class="content-wrapper" style="margin-left: 0px;">
+	<section class="content">
+		<div id="member_div" class="box box-info">
+			<div class="box-header with-border">
+			</div>
+			<div class="box-body">
+				<form>
+					<input id="memberId" type="hidden" class="form-control" value="${Session.memberId}"/>
+					<div class="form-group">
+						<label>成员姓名</label>
+						<input type="text" class="form-control" v-model="basPatMember.memberName" placeholder="成员姓名"/>
+					</div>
+					<div class="form-group">
+						<label>成员年龄</label>
+						<input type="text" class="form-control" v-model="basPatMember.memberAge" placeholder="成员年龄"/>
+					</div>
+					<div class="form-group">
+						<label>成员性别</label><br>
+						<select v-model="basPatMember.memberGender" class='form-control'>
+					        <option v-for="item in patGenderList" :value="item.id">{{item.name}}</option>
+					    </select>
+					</div>
+					<div class="form-group">
+						<label>成员类型</label><br>
+						<select v-model="basPatMember.memberType" @change="getDeptSelect" class='form-control'>
+					        <option v-for="item in patTypeList" :value="item.id">{{item.name}}</option>
+					    </select>
+					</div>
+					<div class="form-group">
+						<label>选择机构</label>
+						<select v-model="basPatMember.deptId"  class='form-control'>
+					        <option v-for="item in deptList" :value="item.id">{{item.name}}</option>
+					    </select>
+					</div>
+					<input type="button" class="btn btn-primary pull-right" @click="saveOrUpdate" value="确定"/>
+				</form>
+			</div>
+		</div>
+	</section>
+</div>
+
+<script src="${request.contextPath}/statics/js/modules/mobile/my_member_info.js"></script>
+</body>
+</html>
