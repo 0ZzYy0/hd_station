@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>首页</title>
+		<#include "/header.html">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	    <link rel="stylesheet" href="${request.contextPath}/statics/css/bootstrap.min.css">
+	    <link rel="stylesheet" href="${request.contextPath}/statics/css/font-awesome.min.css">
+	    <link rel="stylesheet" href="${request.contextPath}/statics/css/AdminLTE.min.css">
+	    <link rel="stylesheet" href="${request.contextPath}/statics/css/all-skins.min.css">
+	    
+	    <link rel="stylesheet" href="${request.contextPath}/statics/css/bootstrap-table.min.css">
+		<link rel="stylesheet" href="${request.contextPath}/statics/plugins/treegrid/jquery.treegrid.css">
+		<script src="${request.contextPath}/statics/libs/bootstrap-table.min.js"></script>
+		<script src="${request.contextPath}/statics/plugins/treegrid/jquery.treegrid.min.js"></script>
+		<script src="${request.contextPath}/statics/plugins/treegrid/jquery.treegrid.bootstrap3.js"></script>
+		<script src="${request.contextPath}/statics/plugins/treegrid/jquery.treegrid.extension.js"></script>
+		<script src="${request.contextPath}/statics/plugins/treegrid/tree.table.js"></script>
+
+		<style type="text/css">
+		</style>
+	</head>
+
+	<body>
+	<div class="content-wrapper" id="rrapp" style="margin-left: 0px;">
+	<section class="content">
+	<div class="row" style="border: none">
+		<div class="col-lg-12 col-xs-12">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3>{{parTemp.tempName}}：{{parTemp.tempValue}}</h3>
+
+              <p>设备编号：{{parTemp.deviceId}}</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-shopping-cart"></i>
+            </div>
+            <a href="#" class="small-box-footer">
+        		    时间：{{parTemp.tempDate}}
+            </a>
+          </div>
+        </div>
+      </div>
+      </section>
+      </div>
+      
+      <script src="${request.contextPath}/statics/libs/jquery.min.js"></script>
+	  <script src="${request.contextPath}/statics/libs/vue.min.js"></script>
+	  <script src="${request.contextPath}/statics/libs/router.js"></script>
+	  <script src="${request.contextPath}/statics/libs/bootstrap.min.js"></script>
+	  <script src="${request.contextPath}/statics/libs/app.js"></script>
+	  <script src="${request.contextPath}/statics/plugins/layer/layer.js"></script>
+		<script>
+		$(document).ready(function() {
+		});
+		var vm = new Vue({
+			el:'#rrapp',
+			data:{
+				parTemp:{}
+			},
+			methods: {
+				getInfo: function(){
+					var a = Math.round(Math.random()*9+1);
+					$.getJSON("${request.contextPath}/partemp/info/"+a, function(r){
+						vm.parTemp = r.parTemp;
+					});
+				},
+				useInfo: function() {
+			        setInterval(() => { 
+			            this.getInfo();
+			        }, 500)
+			        //setInterval(this.getInfo(), 500)
+			    }
+			},
+			created: function(){
+				this.useInfo();
+			}
+		});
+		</script>
+	</body>
+</html>

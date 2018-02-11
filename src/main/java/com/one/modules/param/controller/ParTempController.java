@@ -51,7 +51,6 @@ public class ParTempController {
 	 * 信息
 	 */
 	@RequestMapping("/info/{tempId}")
-	@RequiresPermissions("partemp:info")
 	public R info(@PathVariable("tempId") Long tempId){
 		ParTempEntity parTemp = parTempService.queryObject(tempId);
 		

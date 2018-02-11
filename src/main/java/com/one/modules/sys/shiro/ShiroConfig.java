@@ -72,7 +72,9 @@ public class ShiroConfig {
         filterMap.put("/oAuth2", "anon");
         filterMap.put("/bindDoc", "anon");
         filterMap.put("/partemp/save", "anon");
+        filterMap.put("/partemp/info/**", "anon");
         filterMap.put("/modules/mobile/home.html", "anon");
+        filterMap.put("/modules/param/param_demo.html", "anon");
         filterMap.put("/**", "authc");
         shiroFilter.setFilterChainDefinitionMap(filterMap);
 
