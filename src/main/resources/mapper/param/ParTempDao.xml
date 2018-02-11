@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.one.modules.param.dao.ParTempDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.one.modules.param.entity.ParTempEntity" id="parTempMap">
+        <result property="tempId" column="temp_id"/>
+        <result property="deviceId" column="device_id"/>
+        <result property="tempName" column="temp_name"/>
+        <result property="tempValue" column="temp_value"/>
+        <result property="tempDate" column="temp_date"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.one.modules.param.entity.ParTempEntity">
+		select * from par_temp where temp_id = #{value}
+	</select>
+
+	<select id="queryList" resultType="com.one.modules.param.entity.ParTempEntity">
+		select * from par_temp
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+			<otherwise>
+                order by temp_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(*) from par_temp 
+	</select>
+	 
+	<insert id="save" parameterType="com.one.modules.param.entity.ParTempEntity">
+		insert into par_temp
+		(
+			`temp_id`, 
+			`device_id`, 
+			`temp_name`, 
+			`temp_value`, 
+			`temp_date`
+		)
+		values
+		(
+			#{tempId}, 
+			#{deviceId}, 
+			#{tempName}, 
+			#{tempValue}, 
+			#{tempDate}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.one.modules.param.entity.ParTempEntity">
+		update par_temp 
+		<set>
+			<if test="deviceId != null">`device_id` = #{deviceId}, </if>
+			<if test="tempName != null">`temp_name` = #{tempName}, </if>
+			<if test="tempValue != null">`temp_value` = #{tempValue}, </if>
+			<if test="tempDate != null">`temp_date` = #{tempDate}</if>
+		</set>
+		where temp_id = #{tempId}
+	</update>
+	
+	<delete id="delete">
+		delete from par_temp where temp_id = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from par_temp where temp_id in 
+		<foreach item="tempId" collection="array" open="(" separator="," close=")">
+			#{tempId}
+		</foreach>
+	</delete>
+
+</mapper>
