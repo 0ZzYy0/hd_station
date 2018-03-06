@@ -11,6 +11,11 @@ import com.one.common.utils.RedisUtils;
 import com.one.modules.sys.entity.SysUserEntity;
 import com.one.modules.sys.service.SysUserService;
 
+/***
+ * 
+ * @author zy
+ *
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class RedisTest {
