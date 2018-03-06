@@ -27,4 +27,6 @@ public interface ParTempService {
 	void delete(Long tempId);
 	
 	void deleteBatch(Long[] tempIds);
+	
+	ParTempEntity queryLastOne();
 }

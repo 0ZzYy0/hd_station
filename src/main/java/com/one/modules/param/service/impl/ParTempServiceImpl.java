@@ -51,5 +51,11 @@ public class ParTempServiceImpl implements ParTempService {
 	public void deleteBatch(Long[] tempIds){
 		parTempDao.deleteBatch(tempIds);
 	}
+
+	@Override
+	public ParTempEntity queryLastOne() {
+		// TODO Auto-generated method stub
+		return parTempDao.queryLastOne();
+	}
 	
 }

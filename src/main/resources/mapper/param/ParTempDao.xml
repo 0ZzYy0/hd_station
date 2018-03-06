@@ -15,6 +15,10 @@
 	<select id="queryObject" resultType="com.one.modules.param.entity.ParTempEntity">
 		select * from par_temp where temp_id = #{value}
 	</select>
+	
+	<select id="queryLastOne" resultType="com.one.modules.param.entity.ParTempEntity">
+		select * from par_temp order by temp_date desc limit 0,1
+	</select>
 
 	<select id="queryList" resultType="com.one.modules.param.entity.ParTempEntity">
 		select * from par_temp

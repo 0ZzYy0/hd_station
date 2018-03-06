@@ -14,5 +14,5 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface ParTempDao extends BaseDao<ParTempEntity> {
-	
+	ParTempEntity queryLastOne();
 }

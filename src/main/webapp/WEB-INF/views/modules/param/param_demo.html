@@ -65,15 +65,15 @@
 			},
 			methods: {
 				getInfo: function(){
-					var a = Math.round(Math.random()*9+1);
-					$.getJSON("${request.contextPath}/partemp/info/"+a, function(r){
+					//var a = Math.round(Math.random()*9+1);
+					$.getJSON("${request.contextPath}/partemp/query", function(r){
 						vm.parTemp = r.parTemp;
 					});
 				},
 				useInfo: function() {
 			        setInterval(() => { 
 			            this.getInfo();
-			        }, 500)
+			        }, 2000)
 			        //setInterval(this.getInfo(), 500)
 			    }
 			},

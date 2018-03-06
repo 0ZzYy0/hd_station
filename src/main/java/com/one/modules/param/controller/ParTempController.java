@@ -57,6 +57,17 @@ public class ParTempController {
 		return R.ok().put("parTemp", parTemp);
 	}
 	
+	
+	/**
+	 * 信息
+	 */
+	@RequestMapping("/query")
+	public R query(){
+		ParTempEntity parTemp = parTempService.queryLastOne();
+		
+		return R.ok().put("parTemp", parTemp);
+	}
+	
 	/**
 	 * 保存
 	 */
