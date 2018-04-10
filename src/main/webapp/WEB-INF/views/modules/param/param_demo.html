@@ -12,6 +12,7 @@
 	    <link rel="stylesheet" href="${request.contextPath}/statics/css/font-awesome.min.css">
 	    <link rel="stylesheet" href="${request.contextPath}/statics/css/AdminLTE.min.css">
 	    <link rel="stylesheet" href="${request.contextPath}/statics/css/all-skins.min.css">
+	    <link rel="stylesheet" href="${request.contextPath}/statics/plugins/swiper/css/swiper.min.css">
 	    
 	    <link rel="stylesheet" href="${request.contextPath}/statics/css/bootstrap-table.min.css">
 		<link rel="stylesheet" href="${request.contextPath}/statics/plugins/treegrid/jquery.treegrid.css">
@@ -20,34 +21,378 @@
 		<script src="${request.contextPath}/statics/plugins/treegrid/jquery.treegrid.bootstrap3.js"></script>
 		<script src="${request.contextPath}/statics/plugins/treegrid/jquery.treegrid.extension.js"></script>
 		<script src="${request.contextPath}/statics/plugins/treegrid/tree.table.js"></script>
+		<script src="${request.contextPath}/statics/plugins/swiper/js/swiper.min.js"></script>
 
 		<style type="text/css">
+		    .swiper-container {
+		      width: 100%;
+		      height: 100%;
+		    }
+		    .swiper-slide {
+		      text-align: center;
+		      font-size: 14px;
+		      background: #fff;
+		
+		      /* Center slide text vertically */
+		      display: -webkit-box;
+		      display: -ms-flexbox;
+		      display: -webkit-flex;
+		      display: flex;
+		      -webkit-box-pack: center;
+		      -ms-flex-pack: center;
+		      -webkit-justify-content: center;
+		      justify-content: center;
+		      -webkit-box-align: center;
+		      -ms-flex-align: center;
+		      -webkit-align-items: center;
+		      align-items: center;
+		    }
 		</style>
 	</head>
 
 	<body>
-	<div class="content-wrapper" id="rrapp" style="margin-left: 0px;">
-	<section class="content">
-	<div class="row" style="border: none">
-		<div class="col-lg-12 col-xs-12">
-          <!-- small box -->
-          <div class="small-box bg-aqua">
-            <div class="inner">
-              <h3>{{parTemp.tempName}}：{{parTemp.tempValue}}</h3>
-
-              <p>设备编号：{{parTemp.deviceId}}</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-shopping-cart"></i>
-            </div>
-            <a href="#" class="small-box-footer">
-        		    时间：{{parTemp.tempDate}}
-            </a>
-          </div>
-        </div>
-      </div>
-      </section>
-      </div>
+	    	<div class="swiper-container">
+			    <div class="swiper-wrapper">
+			      <div class="swiper-slide">
+					<div class="content-wrapper" id="rrapp" style="margin-left: 0px;">
+						<section class="content">
+								<div class="row" style="border: none">
+								
+									<div class="col-lg-3 col-xs-6">
+							          <div class="small-box bg-red">
+							            <div class="inner">
+							              <h3>{{parTemp.tempValue}}</h3>
+							
+							              <p>设备编号：{{parTemp.deviceId}}</p>
+							              <p>设备名称：{{parTemp.tempName}}</p>
+							            </div>
+							            <div class="icon">
+							              <i class="ion ion-pie-graph"></i>
+							            </div>
+							            <a href="#" class="small-box-footer">
+							              {{parTemp.tempDate}}
+							            </a>
+							          </div>
+							        </div>
+							        
+									<div class="col-lg-3 col-xs-6">
+							          <div class="small-box bg-aqua">
+							            <div class="inner">
+							              <h3>{{parTemp.tempValue}}</h3>
+							
+							              <p>设备编号：{{parTemp.deviceId}}</p>
+							              <p>设备名称：{{parTemp.tempName}}</p>
+							            </div>
+							            <div class="icon">
+							              <i class="fa fa-shopping-cart"></i>
+							            </div>
+							            <a href="#" class="small-box-footer">
+							        		{{parTemp.tempDate}}
+							            </a>
+							          </div>
+							        </div>
+							        
+									<div class="col-lg-3 col-xs-6">
+							          <div class="small-box bg-aqua">
+							            <div class="inner">
+							              <h3>{{parTemp.tempValue}}</h3>
+							
+							              <p>设备编号：{{parTemp.deviceId}}</p>
+							              <p>设备名称：{{parTemp.tempName}}</p>
+							            </div>
+							            <div class="icon">
+							              <i class="fa fa-shopping-cart"></i>
+							            </div>
+							            <a href="#" class="small-box-footer">
+							        		{{parTemp.tempDate}}
+							            </a>
+							          </div>
+							        </div>
+							        
+									<div class="col-lg-3 col-xs-6">
+							          <div class="small-box bg-red">
+							            <div class="inner">
+							              <h3>{{parTemp.tempValue}}</h3>
+							
+							              <p>设备编号：{{parTemp.deviceId}}</p>
+							              <p>设备名称：{{parTemp.tempName}}</p>
+							            </div>
+							            <div class="icon">
+							              <i class="ion ion-pie-graph"></i>
+							            </div>
+							            <a href="#" class="small-box-footer">
+							              {{parTemp.tempDate}}
+							            </a>
+							          </div>
+							        </div>
+							        
+							        
+									<div class="col-lg-3 col-xs-6">
+							          <div class="small-box bg-aqua">
+							            <div class="inner">
+							              <h3>{{parTemp.tempValue}}</h3>
+							
+							              <p>设备编号：{{parTemp.deviceId}}</p>
+							              <p>设备名称：{{parTemp.tempName}}</p>
+							            </div>
+							            <div class="icon">
+							              <i class="fa fa-shopping-cart"></i>
+							            </div>
+							            <a href="#" class="small-box-footer">
+							        		{{parTemp.tempDate}}
+							            </a>
+							          </div>
+							        </div>
+							        
+									<div class="col-lg-3 col-xs-6">
+							          <div class="small-box bg-red">
+							            <div class="inner">
+							              <h3>{{parTemp.tempValue}}</h3>
+							
+							              <p>设备编号：{{parTemp.deviceId}}</p>
+							              <p>设备名称：{{parTemp.tempName}}</p>
+							            </div>
+							            <div class="icon">
+							              <i class="ion ion-pie-graph"></i>
+							            </div>
+							            <a href="#" class="small-box-footer">
+							              {{parTemp.tempDate}}
+							            </a>
+							          </div>
+							        </div>
+							        
+							      </div>			
+					    </section>
+				     </div>
+				  </div>
+			      <div class="swiper-slide">
+					<div class="content-wrapper" id="rrapp1" style="margin-left: 0px;">
+						<section class="content">
+						<div class="row" style="border: none">
+								
+									<div class="col-lg-3 col-xs-6">
+							          <div class="small-box bg-red">
+							            <div class="inner">
+							              <h3>{{parTemp.tempValue}}</h3>
+							
+							              <p>设备编号：{{parTemp.deviceId}}</p>
+							              <p>设备名称：{{parTemp.tempName}}</p>
+							            </div>
+							            <div class="icon">
+							              <i class="ion ion-pie-graph"></i>
+							            </div>
+							            <a href="#" class="small-box-footer">
+							              {{parTemp.tempDate}}
+							            </a>
+							          </div>
+							        </div>
+							        
+									<div class="col-lg-3 col-xs-6">
+							          <div class="small-box bg-aqua">
+							            <div class="inner">
+							              <h3>{{parTemp.tempValue}}</h3>
+							
+							              <p>设备编号：{{parTemp.deviceId}}</p>
+							              <p>设备名称：{{parTemp.tempName}}</p>
+							            </div>
+							            <div class="icon">
+							              <i class="fa fa-shopping-cart"></i>
+							            </div>
+							            <a href="#" class="small-box-footer">
+							        		{{parTemp.tempDate}}
+							            </a>
+							          </div>
+							        </div>
+							        
+									<div class="col-lg-3 col-xs-6">
+							          <div class="small-box bg-aqua">
+							            <div class="inner">
+							              <h3>{{parTemp.tempValue}}</h3>
+							
+							              <p>设备编号：{{parTemp.deviceId}}</p>
+							              <p>设备名称：{{parTemp.tempName}}</p>
+							            </div>
+							            <div class="icon">
+							              <i class="fa fa-shopping-cart"></i>
+							            </div>
+							            <a href="#" class="small-box-footer">
+							        		{{parTemp.tempDate}}
+							            </a>
+							          </div>
+							        </div>
+							        
+									<div class="col-lg-3 col-xs-6">
+							          <div class="small-box bg-red">
+							            <div class="inner">
+							              <h3>{{parTemp.tempValue}}</h3>
+							
+							              <p>设备编号：{{parTemp.deviceId}}</p>
+							              <p>设备名称：{{parTemp.tempName}}</p>
+							            </div>
+							            <div class="icon">
+							              <i class="ion ion-pie-graph"></i>
+							            </div>
+							            <a href="#" class="small-box-footer">
+							              {{parTemp.tempDate}}
+							            </a>
+							          </div>
+							        </div>
+							        
+							        
+									<div class="col-lg-3 col-xs-6">
+							          <div class="small-box bg-aqua">
+							            <div class="inner">
+							              <h3>{{parTemp.tempValue}}</h3>
+							
+							              <p>设备编号：{{parTemp.deviceId}}</p>
+							              <p>设备名称：{{parTemp.tempName}}</p>
+							            </div>
+							            <div class="icon">
+							              <i class="fa fa-shopping-cart"></i>
+							            </div>
+							            <a href="#" class="small-box-footer">
+							        		{{parTemp.tempDate}}
+							            </a>
+							          </div>
+							        </div>
+							        
+									<div class="col-lg-3 col-xs-6">
+							          <div class="small-box bg-red">
+							            <div class="inner">
+							              <h3>{{parTemp.tempValue}}</h3>
+							
+							              <p>设备编号：{{parTemp.deviceId}}</p>
+							              <p>设备名称：{{parTemp.tempName}}</p>
+							            </div>
+							            <div class="icon">
+							              <i class="ion ion-pie-graph"></i>
+							            </div>
+							            <a href="#" class="small-box-footer">
+							              {{parTemp.tempDate}}
+							            </a>
+							          </div>
+							        </div>
+							        
+					      </div>			
+					    </section>
+				     </div>
+				  </div>
+			      <div class="swiper-slide">
+					<div class="content-wrapper" id="rrapp2" style="margin-left: 0px;">
+						<section class="content">
+						<div class="row" style="border: none">
+								
+									<div class="col-lg-3 col-xs-6">
+							          <div class="small-box bg-red">
+							            <div class="inner">
+							              <h3>{{parTemp.tempValue}}</h3>
+							
+							              <p>设备编号：{{parTemp.deviceId}}</p>
+							              <p>设备名称：{{parTemp.tempName}}</p>
+							            </div>
+							            <div class="icon">
+							              <i class="ion ion-pie-graph"></i>
+							            </div>
+							            <a href="#" class="small-box-footer">
+							              {{parTemp.tempDate}}
+							            </a>
+							          </div>
+							        </div>
+							        
+									<div class="col-lg-3 col-xs-6">
+							          <div class="small-box bg-aqua">
+							            <div class="inner">
+							              <h3>{{parTemp.tempValue}}</h3>
+							
+							              <p>设备编号：{{parTemp.deviceId}}</p>
+							              <p>设备名称：{{parTemp.tempName}}</p>
+							            </div>
+							            <div class="icon">
+							              <i class="fa fa-shopping-cart"></i>
+							            </div>
+							            <a href="#" class="small-box-footer">
+							        		{{parTemp.tempDate}}
+							            </a>
+							          </div>
+							        </div>
+							        
+									<div class="col-lg-3 col-xs-6">
+							          <div class="small-box bg-aqua">
+							            <div class="inner">
+							              <h3>{{parTemp.tempValue}}</h3>
+							
+							              <p>设备编号：{{parTemp.deviceId}}</p>
+							              <p>设备名称：{{parTemp.tempName}}</p>
+							            </div>
+							            <div class="icon">
+							              <i class="fa fa-shopping-cart"></i>
+							            </div>
+							            <a href="#" class="small-box-footer">
+							        		{{parTemp.tempDate}}
+							            </a>
+							          </div>
+							        </div>
+							        
+									<div class="col-lg-3 col-xs-6">
+							          <div class="small-box bg-red">
+							            <div class="inner">
+							              <h3>{{parTemp.tempValue}}</h3>
+							
+							              <p>设备编号：{{parTemp.deviceId}}</p>
+							              <p>设备名称：{{parTemp.tempName}}</p>
+							            </div>
+							            <div class="icon">
+							              <i class="ion ion-pie-graph"></i>
+							            </div>
+							            <a href="#" class="small-box-footer">
+							              {{parTemp.tempDate}}
+							            </a>
+							          </div>
+							        </div>
+							        
+							        
+									<div class="col-lg-3 col-xs-6">
+							          <div class="small-box bg-aqua">
+							            <div class="inner">
+							              <h3>{{parTemp.tempValue}}</h3>
+							
+							              <p>设备编号：{{parTemp.deviceId}}</p>
+							              <p>设备名称：{{parTemp.tempName}}</p>
+							            </div>
+							            <div class="icon">
+							              <i class="fa fa-shopping-cart"></i>
+							            </div>
+							            <a href="#" class="small-box-footer">
+							        		{{parTemp.tempDate}}
+							            </a>
+							          </div>
+							        </div>
+							        
+									<div class="col-lg-3 col-xs-6">
+							          <div class="small-box bg-red">
+							            <div class="inner">
+							              <h3>{{parTemp.tempValue}}</h3>
+							
+							              <p>设备编号：{{parTemp.deviceId}}</p>
+							              <p>设备名称：{{parTemp.tempName}}</p>
+							            </div>
+							            <div class="icon">
+							              <i class="ion ion-pie-graph"></i>
+							            </div>
+							            <a href="#" class="small-box-footer">
+							              {{parTemp.tempDate}}
+							            </a>
+							          </div>
+							        </div>
+							        
+					      </div>			
+					    </section>
+				     </div>	  
+				  </div>
+			    </div>
+			    <!-- <div class="swiper-pagination"></div> -->
+			  </div> 
+	      
       
       <script src="${request.contextPath}/statics/libs/jquery.min.js"></script>
 	  <script src="${request.contextPath}/statics/libs/vue.min.js"></script>
@@ -58,6 +403,15 @@
 		<script>
 		$(document).ready(function() {
 		});
+		
+	    var swiper = new Swiper('.swiper-container', {
+	        direction: 'vertical',
+	        pagination: {
+	          el: '.swiper-pagination',
+	          clickable: true,
+	        },
+	      });
+	    
 		var vm = new Vue({
 			el:'#rrapp',
 			data:{
@@ -68,6 +422,54 @@
 					//var a = Math.round(Math.random()*9+1);
 					$.getJSON("${request.contextPath}/partemp/query", function(r){
 						vm.parTemp = r.parTemp;
+					});
+				},
+				useInfo: function() {
+			        setInterval(() => { 
+			            this.getInfo();
+			        }, 2000)
+			        //setInterval(this.getInfo(), 500)
+			    }
+			},
+			created: function(){
+				this.useInfo();
+			}
+		});
+		
+		var vm1 = new Vue({
+			el:'#rrapp1',
+			data:{
+				parTemp:{}
+			},
+			methods: {
+				getInfo: function(){
+					//var a = Math.round(Math.random()*9+1);
+					$.getJSON("${request.contextPath}/partemp/query", function(r){
+						vm1.parTemp = r.parTemp;
+					});
+				},
+				useInfo: function() {
+			        setInterval(() => { 
+			            this.getInfo();
+			        }, 2000)
+			        //setInterval(this.getInfo(), 500)
+			    }
+			},
+			created: function(){
+				this.useInfo();
+			}
+		});
+		
+		var vm2 = new Vue({
+			el:'#rrapp2',
+			data:{
+				parTemp:{}
+			},
+			methods: {
+				getInfo: function(){
+					//var a = Math.round(Math.random()*9+1);
+					$.getJSON("${request.contextPath}/partemp/query", function(r){
+						vm2.parTemp = r.parTemp;
 					});
 				},
 				useInfo: function() {
