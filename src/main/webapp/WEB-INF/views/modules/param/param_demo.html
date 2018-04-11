@@ -30,7 +30,7 @@
 		    }
 		    .swiper-slide {
 		      text-align: center;
-		      font-size: 14px;
+		      font-size: 11px;
 		      background: #fff;
 		
 		      /* Center slide text vertically */
@@ -56,338 +56,255 @@
 			      <div class="swiper-slide">
 					<div class="content-wrapper" id="rrapp" style="margin-left: 0px;">
 						<section class="content">
-								<div class="row" style="border: none">
-								
-									<div class="col-lg-3 col-xs-6">
-							          <div class="small-box bg-red">
-							            <div class="inner">
-							              <h3>{{parTemp.tempValue}}</h3>
-							
-							              <p>设备编号：{{parTemp.deviceId}}</p>
-							              <p>设备名称：{{parTemp.tempName}}</p>
-							            </div>
-							            <div class="icon">
-							              <i class="ion ion-pie-graph"></i>
-							            </div>
-							            <a href="#" class="small-box-footer">
-							              {{parTemp.tempDate}}
-							            </a>
-							          </div>
-							        </div>
+						<div class="row" style="border: none"><h2>XXX水电站监控</h2></div>
+							<div class="row" style="border: none">
+								<template  v-for="par in parTemp">
+								<div class="col-lg-3 col-xs-6" style="padding-bottom: 1px;">
+						          <div class="small-box bg-red">
+						            <div class="inner">
+						              <h3>{{par.tempValue}}</h3>
+						
+						              <p>设备编号：{{par.deviceId}}</p>
+						              <p>设备名称：{{par.tempName}}</p>
+						            </div>
+						            <div class="icon">
+						              <i class="ion ion-pie-graph"></i>
+						            </div>
+						            <a href="#" class="small-box-footer">
+						              {{par.tempDate}}
+						            </a>
+						          </div>
+						        </div>
+						        </template>
 							        
-									<div class="col-lg-3 col-xs-6">
-							          <div class="small-box bg-aqua">
-							            <div class="inner">
-							              <h3>{{parTemp.tempValue}}</h3>
-							
-							              <p>设备编号：{{parTemp.deviceId}}</p>
-							              <p>设备名称：{{parTemp.tempName}}</p>
-							            </div>
-							            <div class="icon">
-							              <i class="fa fa-shopping-cart"></i>
-							            </div>
-							            <a href="#" class="small-box-footer">
-							        		{{parTemp.tempDate}}
-							            </a>
-							          </div>
-							        </div>
+								<template v-for="par in parShock">
+								<div class="col-lg-3 col-xs-6" style="padding-bottom: 1px;">
+						          <div class="small-box bg-aqua">
+						            <div class="inner">
+						              <h3>{{par.shockValue}}</h3>
+						
+						              <p>设备编号：{{par.shockDeviceId}}</p>
+						              <p>设备名称：{{par.shockName}}</p>
+						            </div>
+						            <div class="icon">
+						              <i class="ion ion-pie-graph"></i>
+						            </div>
+						            <a href="#" class="small-box-footer">
+						              {{par.shockDate}}
+						            </a>
+						          </div>
+						        </div>
+						        </template>
+								<template  v-for="par in parTemp">
+								<div class="col-lg-3 col-xs-6" style="padding-bottom: 1px;">
+						          <div class="small-box bg-yellow">
+						            <div class="inner">
+						              <h3>{{par.tempValue}}</h3>
+						
+						              <p>设备编号：{{par.deviceId}}</p>
+						              <p>设备名称：{{par.tempName}}</p>
+						            </div>
+						            <div class="icon">
+						              <i class="ion ion-pie-graph"></i>
+						            </div>
+						            <a href="#" class="small-box-footer">
+						              {{par.tempDate}}
+						            </a>
+						          </div>
+						        </div>
+						        </template>
 							        
-									<div class="col-lg-3 col-xs-6">
-							          <div class="small-box bg-aqua">
-							            <div class="inner">
-							              <h3>{{parTemp.tempValue}}</h3>
-							
-							              <p>设备编号：{{parTemp.deviceId}}</p>
-							              <p>设备名称：{{parTemp.tempName}}</p>
-							            </div>
-							            <div class="icon">
-							              <i class="fa fa-shopping-cart"></i>
-							            </div>
-							            <a href="#" class="small-box-footer">
-							        		{{parTemp.tempDate}}
-							            </a>
-							          </div>
-							        </div>
-							        
-									<div class="col-lg-3 col-xs-6">
-							          <div class="small-box bg-red">
-							            <div class="inner">
-							              <h3>{{parTemp.tempValue}}</h3>
-							
-							              <p>设备编号：{{parTemp.deviceId}}</p>
-							              <p>设备名称：{{parTemp.tempName}}</p>
-							            </div>
-							            <div class="icon">
-							              <i class="ion ion-pie-graph"></i>
-							            </div>
-							            <a href="#" class="small-box-footer">
-							              {{parTemp.tempDate}}
-							            </a>
-							          </div>
-							        </div>
-							        
-							        
-									<div class="col-lg-3 col-xs-6">
-							          <div class="small-box bg-aqua">
-							            <div class="inner">
-							              <h3>{{parTemp.tempValue}}</h3>
-							
-							              <p>设备编号：{{parTemp.deviceId}}</p>
-							              <p>设备名称：{{parTemp.tempName}}</p>
-							            </div>
-							            <div class="icon">
-							              <i class="fa fa-shopping-cart"></i>
-							            </div>
-							            <a href="#" class="small-box-footer">
-							        		{{parTemp.tempDate}}
-							            </a>
-							          </div>
-							        </div>
-							        
-									<div class="col-lg-3 col-xs-6">
-							          <div class="small-box bg-red">
-							            <div class="inner">
-							              <h3>{{parTemp.tempValue}}</h3>
-							
-							              <p>设备编号：{{parTemp.deviceId}}</p>
-							              <p>设备名称：{{parTemp.tempName}}</p>
-							            </div>
-							            <div class="icon">
-							              <i class="ion ion-pie-graph"></i>
-							            </div>
-							            <a href="#" class="small-box-footer">
-							              {{parTemp.tempDate}}
-							            </a>
-							          </div>
-							        </div>
-							        
-							      </div>			
+								<template v-for="par in parShock">
+								<div class="col-lg-3 col-xs-6" style="padding-bottom: 1px;">
+						          <div class="small-box bg-aqua">
+						            <div class="inner">
+						              <h3>{{par.shockValue}}</h3>
+						
+						              <p>设备编号：{{par.shockDeviceId}}</p>
+						              <p>设备名称：{{par.shockName}}</p>
+						            </div>
+						            <div class="icon">
+						              <i class="ion ion-pie-graph"></i>
+						            </div>
+						            <a href="#" class="small-box-footer">
+						              {{par.shockDate}}
+						            </a>
+						          </div>
+						        </div>
+						        </template>
+					      </div>			
 					    </section>
 				     </div>
 				  </div>
+
 			      <div class="swiper-slide">
 					<div class="content-wrapper" id="rrapp1" style="margin-left: 0px;">
 						<section class="content">
-						<div class="row" style="border: none">
-								
-									<div class="col-lg-3 col-xs-6">
-							          <div class="small-box bg-red">
-							            <div class="inner">
-							              <h3>{{parTemp.tempValue}}</h3>
-							
-							              <p>设备编号：{{parTemp.deviceId}}</p>
-							              <p>设备名称：{{parTemp.tempName}}</p>
-							            </div>
-							            <div class="icon">
-							              <i class="ion ion-pie-graph"></i>
-							            </div>
-							            <a href="#" class="small-box-footer">
-							              {{parTemp.tempDate}}
-							            </a>
-							          </div>
-							        </div>
+						<div class="row" style="border: none"><h2>高速采集</h2></div>
+							<div class="row" style="border: none">
+								<template  v-for="par in parTemp">
+								<div class="col-lg-3 col-xs-6" style="padding-bottom: 1px;">
+						          <div class="small-box bg-red">
+						            <div class="inner">
+						              <h3>{{par.tempValue}}</h3>
+						
+						              <p>设备编号：{{par.deviceId}}</p>
+						              <p>设备名称：{{par.tempName}}</p>
+						            </div>
+						            <div class="icon">
+						              <i class="ion ion-pie-graph"></i>
+						            </div>
+						            <a href="#" class="small-box-footer">
+						              {{par.tempDate}}
+						            </a>
+						          </div>
+						        </div>
+						        </template>
 							        
-									<div class="col-lg-3 col-xs-6">
-							          <div class="small-box bg-aqua">
-							            <div class="inner">
-							              <h3>{{parTemp.tempValue}}</h3>
-							
-							              <p>设备编号：{{parTemp.deviceId}}</p>
-							              <p>设备名称：{{parTemp.tempName}}</p>
-							            </div>
-							            <div class="icon">
-							              <i class="fa fa-shopping-cart"></i>
-							            </div>
-							            <a href="#" class="small-box-footer">
-							        		{{parTemp.tempDate}}
-							            </a>
-							          </div>
-							        </div>
+								<template v-for="par in parShock">
+								<div class="col-lg-3 col-xs-6" style="padding-bottom: 1px;">
+						          <div class="small-box bg-aqua">
+						            <div class="inner">
+						              <h3>{{par.shockValue}}</h3>
+						
+						              <p>设备编号：{{par.shockDeviceId}}</p>
+						              <p>设备名称：{{par.shockName}}</p>
+						            </div>
+						            <div class="icon">
+						              <i class="ion ion-pie-graph"></i>
+						            </div>
+						            <a href="#" class="small-box-footer">
+						              {{par.shockDate}}
+						            </a>
+						          </div>
+						        </div>
+						        </template>
+								<template  v-for="par in parTemp">
+								<div class="col-lg-3 col-xs-6" style="padding-bottom: 1px;">
+						          <div class="small-box bg-yellow">
+						            <div class="inner">
+						              <h3>{{par.tempValue}}</h3>
+						
+						              <p>设备编号：{{par.deviceId}}</p>
+						              <p>设备名称：{{par.tempName}}</p>
+						            </div>
+						            <div class="icon">
+						              <i class="ion ion-pie-graph"></i>
+						            </div>
+						            <a href="#" class="small-box-footer">
+						              {{par.tempDate}}
+						            </a>
+						          </div>
+						        </div>
+						        </template>
 							        
-									<div class="col-lg-3 col-xs-6">
-							          <div class="small-box bg-aqua">
-							            <div class="inner">
-							              <h3>{{parTemp.tempValue}}</h3>
-							
-							              <p>设备编号：{{parTemp.deviceId}}</p>
-							              <p>设备名称：{{parTemp.tempName}}</p>
-							            </div>
-							            <div class="icon">
-							              <i class="fa fa-shopping-cart"></i>
-							            </div>
-							            <a href="#" class="small-box-footer">
-							        		{{parTemp.tempDate}}
-							            </a>
-							          </div>
-							        </div>
-							        
-									<div class="col-lg-3 col-xs-6">
-							          <div class="small-box bg-red">
-							            <div class="inner">
-							              <h3>{{parTemp.tempValue}}</h3>
-							
-							              <p>设备编号：{{parTemp.deviceId}}</p>
-							              <p>设备名称：{{parTemp.tempName}}</p>
-							            </div>
-							            <div class="icon">
-							              <i class="ion ion-pie-graph"></i>
-							            </div>
-							            <a href="#" class="small-box-footer">
-							              {{parTemp.tempDate}}
-							            </a>
-							          </div>
-							        </div>
-							        
-							        
-									<div class="col-lg-3 col-xs-6">
-							          <div class="small-box bg-aqua">
-							            <div class="inner">
-							              <h3>{{parTemp.tempValue}}</h3>
-							
-							              <p>设备编号：{{parTemp.deviceId}}</p>
-							              <p>设备名称：{{parTemp.tempName}}</p>
-							            </div>
-							            <div class="icon">
-							              <i class="fa fa-shopping-cart"></i>
-							            </div>
-							            <a href="#" class="small-box-footer">
-							        		{{parTemp.tempDate}}
-							            </a>
-							          </div>
-							        </div>
-							        
-									<div class="col-lg-3 col-xs-6">
-							          <div class="small-box bg-red">
-							            <div class="inner">
-							              <h3>{{parTemp.tempValue}}</h3>
-							
-							              <p>设备编号：{{parTemp.deviceId}}</p>
-							              <p>设备名称：{{parTemp.tempName}}</p>
-							            </div>
-							            <div class="icon">
-							              <i class="ion ion-pie-graph"></i>
-							            </div>
-							            <a href="#" class="small-box-footer">
-							              {{parTemp.tempDate}}
-							            </a>
-							          </div>
-							        </div>
-							        
+								<template v-for="par in parShock">
+								<div class="col-lg-3 col-xs-6" style="padding-bottom: 1px;">
+						          <div class="small-box bg-red">
+						            <div class="inner">
+						              <h3>{{par.shockValue}}</h3>
+						
+						              <p>设备编号：{{par.shockDeviceId}}</p>
+						              <p>设备名称：{{par.shockName}}</p>
+						            </div>
+						            <div class="icon">
+						              <i class="ion ion-pie-graph"></i>
+						            </div>
+						            <a href="#" class="small-box-footer">
+						              {{par.shockDate}}
+						            </a>
+						          </div>
+						        </div>
+						        </template>
 					      </div>			
 					    </section>
 				     </div>
 				  </div>
+				  
+
 			      <div class="swiper-slide">
 					<div class="content-wrapper" id="rrapp2" style="margin-left: 0px;">
 						<section class="content">
-						<div class="row" style="border: none">
-								
-									<div class="col-lg-3 col-xs-6">
-							          <div class="small-box bg-red">
-							            <div class="inner">
-							              <h3>{{parTemp.tempValue}}</h3>
-							
-							              <p>设备编号：{{parTemp.deviceId}}</p>
-							              <p>设备名称：{{parTemp.tempName}}</p>
-							            </div>
-							            <div class="icon">
-							              <i class="ion ion-pie-graph"></i>
-							            </div>
-							            <a href="#" class="small-box-footer">
-							              {{parTemp.tempDate}}
-							            </a>
-							          </div>
-							        </div>
+						<div class="row" style="border: none"><h2>专家分析</h2></div>
+							<div class="row" style="border: none">
+								<template  v-for="par in parTemp">
+								<div class="col-lg-3 col-xs-6" style="padding-bottom: 1px;">
+						          <div class="small-box bg-red">
+						            <div class="inner">
+						              <h3>{{par.tempValue}}</h3>
+						
+						              <p>设备编号：{{par.deviceId}}</p>
+						              <p>设备名称：{{par.tempName}}</p>
+						            </div>
+						            <div class="icon">
+						              <i class="ion ion-pie-graph"></i>
+						            </div>
+						            <a href="#" class="small-box-footer">
+						              {{par.tempDate}}
+						            </a>
+						          </div>
+						        </div>
+						        </template>
 							        
-									<div class="col-lg-3 col-xs-6">
-							          <div class="small-box bg-aqua">
-							            <div class="inner">
-							              <h3>{{parTemp.tempValue}}</h3>
-							
-							              <p>设备编号：{{parTemp.deviceId}}</p>
-							              <p>设备名称：{{parTemp.tempName}}</p>
-							            </div>
-							            <div class="icon">
-							              <i class="fa fa-shopping-cart"></i>
-							            </div>
-							            <a href="#" class="small-box-footer">
-							        		{{parTemp.tempDate}}
-							            </a>
-							          </div>
-							        </div>
+								<template v-for="par in parShock">
+								<div class="col-lg-3 col-xs-6" style="padding-bottom: 1px;">
+						          <div class="small-box bg-aqua">
+						            <div class="inner">
+						              <h3>{{par.shockValue}}</h3>
+						
+						              <p>设备编号：{{par.shockDeviceId}}</p>
+						              <p>设备名称：{{par.shockName}}</p>
+						            </div>
+						            <div class="icon">
+						              <i class="ion ion-pie-graph"></i>
+						            </div>
+						            <a href="#" class="small-box-footer">
+						              {{par.shockDate}}
+						            </a>
+						          </div>
+						        </div>
+						        </template>
+								<template  v-for="par in parTemp">
+								<div class="col-lg-3 col-xs-6" style="padding-bottom: 1px;">
+						          <div class="small-box bg-yellow">
+						            <div class="inner">
+						              <h3>{{par.tempValue}}</h3>
+						
+						              <p>设备编号：{{par.deviceId}}</p>
+						              <p>设备名称：{{par.tempName}}</p>
+						            </div>
+						            <div class="icon">
+						              <i class="ion ion-pie-graph"></i>
+						            </div>
+						            <a href="#" class="small-box-footer">
+						              {{par.tempDate}}
+						            </a>
+						          </div>
+						        </div>
+						        </template>
 							        
-									<div class="col-lg-3 col-xs-6">
-							          <div class="small-box bg-aqua">
-							            <div class="inner">
-							              <h3>{{parTemp.tempValue}}</h3>
-							
-							              <p>设备编号：{{parTemp.deviceId}}</p>
-							              <p>设备名称：{{parTemp.tempName}}</p>
-							            </div>
-							            <div class="icon">
-							              <i class="fa fa-shopping-cart"></i>
-							            </div>
-							            <a href="#" class="small-box-footer">
-							        		{{parTemp.tempDate}}
-							            </a>
-							          </div>
-							        </div>
-							        
-									<div class="col-lg-3 col-xs-6">
-							          <div class="small-box bg-red">
-							            <div class="inner">
-							              <h3>{{parTemp.tempValue}}</h3>
-							
-							              <p>设备编号：{{parTemp.deviceId}}</p>
-							              <p>设备名称：{{parTemp.tempName}}</p>
-							            </div>
-							            <div class="icon">
-							              <i class="ion ion-pie-graph"></i>
-							            </div>
-							            <a href="#" class="small-box-footer">
-							              {{parTemp.tempDate}}
-							            </a>
-							          </div>
-							        </div>
-							        
-							        
-									<div class="col-lg-3 col-xs-6">
-							          <div class="small-box bg-aqua">
-							            <div class="inner">
-							              <h3>{{parTemp.tempValue}}</h3>
-							
-							              <p>设备编号：{{parTemp.deviceId}}</p>
-							              <p>设备名称：{{parTemp.tempName}}</p>
-							            </div>
-							            <div class="icon">
-							              <i class="fa fa-shopping-cart"></i>
-							            </div>
-							            <a href="#" class="small-box-footer">
-							        		{{parTemp.tempDate}}
-							            </a>
-							          </div>
-							        </div>
-							        
-									<div class="col-lg-3 col-xs-6">
-							          <div class="small-box bg-red">
-							            <div class="inner">
-							              <h3>{{parTemp.tempValue}}</h3>
-							
-							              <p>设备编号：{{parTemp.deviceId}}</p>
-							              <p>设备名称：{{parTemp.tempName}}</p>
-							            </div>
-							            <div class="icon">
-							              <i class="ion ion-pie-graph"></i>
-							            </div>
-							            <a href="#" class="small-box-footer">
-							              {{parTemp.tempDate}}
-							            </a>
-							          </div>
-							        </div>
-							        
+								<template v-for="par in parShock">
+								<div class="col-lg-3 col-xs-6" style="padding-bottom: 1px;">
+						          <div class="small-box bg-yellow">
+						            <div class="inner">
+						              <h3>{{par.shockValue}}</h3>
+						
+						              <p>设备编号：{{par.shockDeviceId}}</p>
+						              <p>设备名称：{{par.shockName}}</p>
+						            </div>
+						            <div class="icon">
+						              <i class="ion ion-pie-graph"></i>
+						            </div>
+						            <a href="#" class="small-box-footer">
+						              {{par.shockDate}}
+						            </a>
+						          </div>
+						        </div>
+						        </template>
 					      </div>			
 					    </section>
-				     </div>	  
+				     </div>
+				  </div>
 				  </div>
 			    </div>
 			    <!-- <div class="swiper-pagination"></div> -->
@@ -415,7 +332,8 @@
 		var vm = new Vue({
 			el:'#rrapp',
 			data:{
-				parTemp:{}
+				parTemp:{},
+				parShock:{}
 			},
 			methods: {
 				getInfo: function(){
@@ -424,10 +342,19 @@
 						vm.parTemp = r.parTemp;
 					});
 				},
+				getShockInfo: function(){
+					$.getJSON("${request.contextPath}/partemp/queryShock", function(r){
+						vm.parShock = r.parShock;
+					});
+				},
 				useInfo: function() {
-			        setInterval(() => { 
+			        setInterval(() => {
 			            this.getInfo();
-			        }, 2000)
+			        }, 2000);
+			        setInterval(() => {
+			            //this.getInfo();
+			            this.getShockInfo();
+			        }, 5000);
 			        //setInterval(this.getInfo(), 500)
 			    }
 			},
@@ -439,7 +366,8 @@
 		var vm1 = new Vue({
 			el:'#rrapp1',
 			data:{
-				parTemp:{}
+				parTemp:{},
+				parShock:{}
 			},
 			methods: {
 				getInfo: function(){
@@ -448,22 +376,33 @@
 						vm1.parTemp = r.parTemp;
 					});
 				},
+				getShockInfo: function(){
+					$.getJSON("${request.contextPath}/partemp/queryShock", function(r){
+						vm1.parShock = r.parShock;
+					});
+				},
 				useInfo: function() {
-			        setInterval(() => { 
+			        setInterval(() => {
 			            this.getInfo();
-			        }, 2000)
+			        }, 1000);
+			        setInterval(() => {
+			            //this.getInfo();
+			            this.getShockInfo();
+			        }, 1000);
 			        //setInterval(this.getInfo(), 500)
 			    }
 			},
 			created: function(){
 				this.useInfo();
 			}
-		});
+		});		
+		
 		
 		var vm2 = new Vue({
 			el:'#rrapp2',
 			data:{
-				parTemp:{}
+				parTemp:{},
+				parShock:{}
 			},
 			methods: {
 				getInfo: function(){
@@ -472,17 +411,26 @@
 						vm2.parTemp = r.parTemp;
 					});
 				},
+				getShockInfo: function(){
+					$.getJSON("${request.contextPath}/partemp/queryShock", function(r){
+						vm2.parShock = r.parShock;
+					});
+				},
 				useInfo: function() {
-			        setInterval(() => { 
+			        setInterval(() => {
 			            this.getInfo();
-			        }, 2000)
+			        }, 2000);
+			        setInterval(() => {
+			            //this.getInfo();
+			            this.getShockInfo();
+			        }, 5000);
 			        //setInterval(this.getInfo(), 500)
 			    }
 			},
 			created: function(){
 				this.useInfo();
 			}
-		});
+		});				
 		</script>
 	</body>
 </html>

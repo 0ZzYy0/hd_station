@@ -1,7 +1,11 @@
 package com.one.modules.param.controller;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,10 +67,44 @@ public class ParTempController {
 	 */
 	@RequestMapping("/query")
 	public R query(){
-		ParTempEntity parTemp = parTempService.queryLastOne();
+		//ParTempEntity parTemp = parTempService.queryLastOne();
+		List<Map> list = new ArrayList<Map>();
+		Map tempMap = new HashMap();
 		
-		return R.ok().put("parTemp", parTemp);
+		Random rand = new Random();
+		  
+		for (int i = 1; i <= 3; i++) {
+			tempMap.put("deviceId", "1");
+			tempMap.put("tempName", "温度"+i);
+			tempMap.put("tempValue", rand.nextInt(100));
+			tempMap.put("tempDate", new Date());
+			
+		}
+		list.add(tempMap);
+		
+		return R.ok().put("parTemp", list);
 	}
+	
+	/**
+	 * 振摆信息
+	 */
+	@RequestMapping("/queryShock")
+	public R queryShock(){
+		List<Map> list = new ArrayList<Map>();
+		Map shockMap = new HashMap();
+		Random rand = new Random();
+		
+		for (int i = 1; i <= 3; i++) {
+			shockMap.put("shockDeviceId", "1");
+			shockMap.put("shockName", "振摆"+i);
+			shockMap.put("shockValue", rand.nextInt(20));
+			shockMap.put("shockDate", new Date());
+		}
+		
+		list.add(shockMap);
+		
+		return R.ok().put("parShock", list);
+	}	
 	
 	/**
 	 * 保存
