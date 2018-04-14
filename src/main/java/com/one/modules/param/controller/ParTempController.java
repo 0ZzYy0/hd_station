@@ -63,7 +63,7 @@ public class ParTempController {
 	
 	
 	/**
-	 * 信息
+	 * 温度
 	 */
 	@RequestMapping("/query")
 	public R query(){
@@ -104,6 +104,95 @@ public class ParTempController {
 		list.add(shockMap);
 		
 		return R.ok().put("parShock", list);
+	}
+	
+	/**
+	 * 振动信息
+	 */
+	@RequestMapping("/queryVibration")
+	public R queryVibration(){
+		List<Map> list = new ArrayList<Map>();
+		Map tempMap = new HashMap();
+		Random rand = new Random();
+		
+		for (int i = 1; i <= 3; i++) {
+			tempMap.put("deviceId", "1");
+			tempMap.put("tempName", "振动"+i);
+			tempMap.put("tempValue", rand.nextInt(30));
+			tempMap.put("tempDate", new Date());
+			
+		}
+		
+		list.add(tempMap);
+		
+		return R.ok().put("parVibration", list);
+	}	
+	
+	/**
+	 * 转速信息
+	 */
+	@RequestMapping("/querySpeed")
+	public R querySpeed(){
+		List<Map> list = new ArrayList<Map>();
+		Map tempMap = new HashMap();
+		Random rand = new Random();
+		
+		for (int i = 1; i <= 3; i++) {
+			tempMap.put("deviceId", "1");
+			tempMap.put("tempName", "转速"+i);
+			tempMap.put("tempValue", rand.nextInt(30));
+			tempMap.put("tempDate", new Date());
+			
+		}
+		
+		list.add(tempMap);
+		
+		return R.ok().put("parSpeed", list);
+	}	
+	
+	/**
+	 * ZDL轴电流信息
+	 */
+	@RequestMapping("/queryZDL")
+	public R queryZDL(){
+		List<Map> list = new ArrayList<Map>();
+		Map tempMap = new HashMap();
+		Random rand = new Random();
+		
+		for (int i = 1; i <= 3; i++) {
+			tempMap.put("deviceId", "1");
+			tempMap.put("tempName", "ZDL轴电流"+i);
+			tempMap.put("tempValue", rand.nextInt(30));
+			tempMap.put("tempDate", new Date());
+			
+		}
+		
+		list.add(tempMap);
+		
+		return R.ok().put("parZDL", list);
+	}	
+	
+	
+	/**
+	 * 电参量信息
+	 */
+	@RequestMapping("/queryElectric")
+	public R queryElectric(){
+		List<Map> list = new ArrayList<Map>();
+		Map tempMap = new HashMap();
+		Random rand = new Random();
+		
+		for (int i = 1; i <= 3; i++) {
+			tempMap.put("deviceId", "1");
+			tempMap.put("tempName", "电参量"+i);
+			tempMap.put("tempValue", rand.nextInt(300));
+			tempMap.put("tempDate", new Date());
+			
+		}
+		
+		list.add(tempMap);
+		
+		return R.ok().put("parElectric", list);
 	}	
 	
 	/**
