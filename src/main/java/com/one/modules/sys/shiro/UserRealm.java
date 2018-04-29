@@ -20,8 +20,10 @@ import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.one.modules.sys.dao.SysDeptDao;
 import com.one.modules.sys.dao.SysMenuDao;
 import com.one.modules.sys.dao.SysUserDao;
+import com.one.modules.sys.entity.SysDeptEntity;
 import com.one.modules.sys.entity.SysMenuEntity;
 import com.one.modules.sys.entity.SysUserEntity;
 
@@ -38,6 +40,8 @@ public class UserRealm extends AuthorizingRealm {
     private SysUserDao sysUserDao;
     @Autowired
     private SysMenuDao sysMenuDao;
+    @Autowired
+    private SysDeptDao sysDeptDao;
     
     /**
      * 授权(验证权限时调用)
@@ -86,10 +90,14 @@ public class UserRealm extends AuthorizingRealm {
         SysUserEntity user = sysUserDao.queryByUserName(token.getUsername());
         
         //账号不存在
-        if(user == null) {
+        if (user == null) {
             throw new UnknownAccountException("账号或密码不正确");
         }
 
+        if (user.getDeptId() != null && !user.getDeptId().equals("")) {
+        	SysDeptEntity dept = sysDeptDao.queryObject(user.getDeptId());
+        	user.setDeptName(dept.getName());
+        }
         SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(user, user.getPassword(), ByteSource.Util.bytes(user.getSalt()), getName());
         return info;
 	}

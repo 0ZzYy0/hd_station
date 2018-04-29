@@ -69,14 +69,15 @@ public class ShiroConfig {
         filterMap.put("/baspatient", "anon");
         filterMap.put("/favicon.ico", "anon");
         filterMap.put("/captcha.jpg", "anon");
-        filterMap.put("/oAuth2", "anon");
-        filterMap.put("/bindDoc", "anon");
+        //filterMap.put("/oAuth2", "anon");
+        filterMap.put("/mobile/login", "anon");
         filterMap.put("/partemp/save", "anon");
         filterMap.put("/partemp/info/**", "anon");
         filterMap.put("/partemp/**", "anon");
         //filterMap.put("/partemp/queryShock", "anon");
         filterMap.put("/modules/mobile/home.html", "anon");
         filterMap.put("/modules/param/param_demo.html", "anon");
+        filterMap.put("/modules/mobile/mobile_login.html", "anon");
         filterMap.put("/**", "authc");
         shiroFilter.setFilterChainDefinitionMap(filterMap);
 

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.one.modules.group.dao.StaWorkGroupDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.one.modules.group.entity.StaWorkGroupEntity" id="staWorkGroupMap">
+        <result property="groupId" column="group_id"/>
+        <result property="deptId" column="dept_id"/>
+        <result property="groupCode" column="group_code"/>
+        <result property="groupName" column="group_name"/>
+        <result property="groupPerson" column="group_person"/>
+        <result property="remark" column="remark"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.one.modules.group.entity.StaWorkGroupEntity">
+		select * from sta_work_group where group_id = #{value}
+	</select>
+
+	<select id="queryList" resultType="com.one.modules.group.entity.StaWorkGroupEntity">
+		select * from sta_work_group
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+			<otherwise>
+                order by group_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(*) from sta_work_group 
+	</select>
+	 
+	<insert id="save" parameterType="com.one.modules.group.entity.StaWorkGroupEntity">
+		insert into sta_work_group
+		(
+			`group_id`, 
+			`dept_id`, 
+			`group_code`, 
+			`group_name`, 
+			`group_person`, 
+			`remark`
+		)
+		values
+		(
+			#{groupId}, 
+			#{deptId}, 
+			#{groupCode}, 
+			#{groupName}, 
+			#{groupPerson}, 
+			#{remark}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.one.modules.group.entity.StaWorkGroupEntity">
+		update sta_work_group 
+		<set>
+			<if test="deptId != null">`dept_id` = #{deptId}, </if>
+			<if test="groupCode != null">`group_code` = #{groupCode}, </if>
+			<if test="groupName != null">`group_name` = #{groupName}, </if>
+			<if test="groupPerson != null">`group_person` = #{groupPerson}, </if>
+			<if test="remark != null">`remark` = #{remark}</if>
+		</set>
+		where group_id = #{groupId}
+	</update>
+	
+	<delete id="delete">
+		delete from sta_work_group where group_id = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from sta_work_group where group_id in 
+		<foreach item="groupId" collection="array" open="(" separator="," close=")">
+			#{groupId}
+		</foreach>
+	</delete>
+
+</mapper>

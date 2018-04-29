@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>账号绑定</title>
+<title>登录</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
@@ -24,20 +24,17 @@
 <body class="hold-transition lockscreen">
 	<div class="lockscreen-wrapper" style="margin-top: 30%;" id="rrapp">
 		<div class="lockscreen-logo">
-			<b>牙防</b>平台
+			<b>水电监控</b>平台
 		</div>
 
 		<div class="lockscreen-item">
 		  <div v-if="error" class="alert alert-danger alert-dismissible text-right">
 	        <h4><i class="fa fa-exclamation-triangle"></i> {{errorMsg}}</h4>
 	      </div>
-			<div class="lockscreen-image">
-				<img src="${Session.snsUserInfo.headImgUrl}">
-			</div>
 			<form class="lockscreen-credentials">
 				<div style="height: 10px;"></div>
 				<div class="input-group" style="height: 40px;">
-					<input type="text" v-model="username" style="height: 35px;line-height: 25px;" class="form-control" placeholder="医生编号">
+					<input type="text" v-model="username" style="height: 35px;line-height: 25px;" class="form-control" placeholder="账号">
 				</div>
 				<div style="height: 10px;"></div>
 				<div class="input-group" style="height: 40px;"><!-- border-bottom:1px solid #d2d6de; -->
@@ -47,7 +44,7 @@
 			</form>
 			</div>
 			<div class="text-center">
-				<button type="button" class="btn btn-info" style="width: 280px;" @click="bindUser">绑定</button>
+				<button type="button" class="btn btn-info" style="width: 280px;" @click="mobileLogin">登录</button>
 			</div>
 	</div>
 
@@ -69,16 +66,16 @@
 			}
 		},
 		methods: {
-			bindUser: function (event) {
+			mobileLogin: function (event) {
 				var data = "username="+vm.username+"&password="+vm.password;
 				$.ajax({
 					type: "POST",
-				    url: "${request.contextPath}/bindDoc",
+				    url: "${request.contextPath}/mobile/login",
 				    data: data,
 				    dataType: "json",
 				    success: function(result){
 						if(result.code == 0){//绑定成功
-							parent.location.href ='home_doctor.html';
+							parent.location.href ='home.html';
 						}else{
 							vm.error = true;
 							vm.errorMsg = result.msg;
