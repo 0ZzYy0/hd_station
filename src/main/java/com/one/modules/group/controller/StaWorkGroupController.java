@@ -93,4 +93,15 @@ public class StaWorkGroupController {
 		return R.ok();
 	}
 	
+	/**
+	 * 当前用户所在部门列表
+	 */
+	@RequestMapping("/listByDept")
+	@RequiresPermissions("staworkgroup:list")
+	public R listByDept(@RequestParam Long deptId){
+		List<StaWorkGroupEntity> workGroupList = staWorkGroupService.queryListByDeptId(deptId);
+		
+		return R.ok().put("workGroupList", workGroupList);
+	}
+	
 }

@@ -79,5 +79,9 @@
 			#{groupId}
 		</foreach>
 	</delete>
-
+	
+	<select id="queryListByDeptId" resultType="com.one.modules.group.entity.StaWorkGroupEntity">
+		select * from sta_work_group where dept_id = #{deptId}
+	</select>
+	
 </mapper>

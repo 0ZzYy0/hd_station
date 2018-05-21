@@ -53,14 +53,14 @@
             </div>
             
             <div class="box-footer">
-		<div class="row"  style="border: none;">
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-yellow">
+		<div class="row"  style="border: none;" v-for="item in workGroupList" >
+        
+        <div class="col-lg-12 col-xs-12">
+          <div class="small-box bg-green">
             <div class="inner">
-              <h4>一号机组</h4>
+              <h4>{{item.groupName}}</h4>
 
-              <p>编号：1</p>
+              <p>编号：{{item.groupCode}}</p>
             </div>
             <div class="icon">
               <i class="fa fa-shopping-cart"></i>
@@ -70,23 +70,7 @@
             </a>
           </div>
         </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-green">
-            <div class="inner">
-              <h4>二号机组</h4>
-
-              <p>编号：2</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="#" class="small-box-footer" @click="goUrl">
-              	更多信息 <i class="fa fa-arrow-circle-right"></i>
-            </a>
-          </div>
-        </div>
+        
       </div>
             </div>
           </div>
@@ -107,12 +91,16 @@
 		var vm = new Vue({
 			el:'#rrapp',
 			data:{
-				user:{}
+				user:{},
+				workGroupList:[]
 			},
 			methods: {
 				getUser: function(){
 					$.getJSON("${request.contextPath}/sys/user/info?_"+$.now(), function(r){
 						vm.user = r.user;
+						$.getJSON("${request.contextPath}/staworkgroup/listByDept?deptId="+r.user.deptId, function(r){
+							vm.workGroupList = r.workGroupList;
+						});
 					});
 				},
 				goUrl:function(){

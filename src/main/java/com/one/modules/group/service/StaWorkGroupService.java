@@ -27,4 +27,6 @@ public interface StaWorkGroupService {
 	void delete(Long groupId);
 	
 	void deleteBatch(Long[] groupIds);
+	
+	List<StaWorkGroupEntity> queryListByDeptId(Long deptId);
 }

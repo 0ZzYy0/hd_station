@@ -51,5 +51,11 @@ public class StaWorkGroupServiceImpl implements StaWorkGroupService {
 	public void deleteBatch(Long[] groupIds){
 		staWorkGroupDao.deleteBatch(groupIds);
 	}
+
+	@Override
+	public List<StaWorkGroupEntity> queryListByDeptId(Long deptId) {
+		// TODO Auto-generated method stub
+		return staWorkGroupDao.queryListByDeptId(deptId);
+	}
 	
 }

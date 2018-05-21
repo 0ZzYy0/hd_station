@@ -3,6 +3,8 @@ package com.one.modules.group.dao;
 import com.one.modules.group.entity.StaWorkGroupEntity;
 import com.one.modules.sys.dao.BaseDao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -14,5 +16,5 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface StaWorkGroupDao extends BaseDao<StaWorkGroupEntity> {
-	
+	List<StaWorkGroupEntity> queryListByDeptId(Long deptId);
 }

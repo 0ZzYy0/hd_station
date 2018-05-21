@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.one.modules.param.dao.StaParamDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.one.modules.param.entity.StaParamEntity" id="staParamMap">
+        <result property="paramId" column="param_id"/>
+        <result property="deptId" column="dept_id"/>
+        <result property="groupId" column="group_id"/>
+        <result property="paramType" column="param_type"/>
+        <result property="paramValue" column="param_value"/>
+        <result property="paramDate" column="param_date"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.one.modules.param.entity.StaParamEntity">
+		select * from sta_param where param_id = #{value}
+	</select>
+
+	<select id="queryList" resultType="com.one.modules.param.entity.StaParamEntity">
+		select * from sta_param
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+			<otherwise>
+                order by param_id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(*) from sta_param 
+	</select>
+	 
+	<insert id="save" parameterType="com.one.modules.param.entity.StaParamEntity" useGeneratedKeys="true" keyProperty="paramId">
+		insert into sta_param
+		(
+			`dept_id`, 
+			`group_id`, 
+			`param_type`, 
+			`param_value`, 
+			`param_date`
+		)
+		values
+		(
+			#{deptId}, 
+			#{groupId}, 
+			#{paramType}, 
+			#{paramValue}, 
+			#{paramDate}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.one.modules.param.entity.StaParamEntity">
+		update sta_param 
+		<set>
+			<if test="deptId != null">`dept_id` = #{deptId}, </if>
+			<if test="groupId != null">`group_id` = #{groupId}, </if>
+			<if test="paramType != null">`param_type` = #{paramType}, </if>
+			<if test="paramValue != null">`param_value` = #{paramValue}, </if>
+			<if test="paramDate != null">`param_date` = #{paramDate}</if>
+		</set>
+		where param_id = #{paramId}
+	</update>
+	
+	<delete id="delete">
+		delete from sta_param where param_id = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from sta_param where param_id in 
+		<foreach item="paramId" collection="array" open="(" separator="," close=")">
+			#{paramId}
+		</foreach>
+	</delete>
+	
+	<select id="queryListByParams" resultType="com.one.modules.param.entity.StaParamEntity">
+		select * from sta_param para,sta_param_type typePara where para.group_id = #{groupId} and para.dept_id = #{deptId} 
+		 and para.param_type = typePara.type_id
+		 and max(param_date) and param_type in 
+		(select type_id from sta_param_type where group_id = #{groupId} and dept_id = #{deptId})
+	</select>
+</mapper>
