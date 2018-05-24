@@ -7,11 +7,12 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.one.common.utils.PageUtils;
 import com.one.common.utils.Query;
@@ -28,7 +29,7 @@ import com.one.modules.sys.shiro.ShiroUtils;
  * @email 553224182@qq.com
  * @date 2018-04-29 11:20:04
  */
-@RestController
+@Controller
 @RequestMapping("staworkgroup")
 public class StaWorkGroupController {
 	@Autowired
@@ -101,9 +102,9 @@ public class StaWorkGroupController {
 	 */
 	@RequestMapping("/listByDept")
 	@RequiresPermissions("staworkgroup:list")
+	@ResponseBody
 	public R listByDept(@RequestParam Long deptId){
 		List<StaWorkGroupEntity> workGroupList = staWorkGroupService.queryListByDeptId(deptId);
-		
 		return R.ok().put("workGroupList", workGroupList);
 	}
 	
@@ -113,7 +114,6 @@ public class StaWorkGroupController {
 	@RequestMapping("/toGroupType")
 	public String toGroupType(@RequestParam Long groupId,HttpServletRequest request){
 		ShiroUtils.getSession().setAttribute("groupId", request.getParameter("groupId"));
-		
 		return "redirect:/modules/mobile/group_type.html";
 	}
 	

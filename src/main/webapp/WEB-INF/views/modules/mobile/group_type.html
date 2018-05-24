@@ -48,6 +48,7 @@
          </div>
          
 	  <div class="box-body">   
+	  <input id="groupId" type="hidden" class="form-control" value="${Session.groupId}"/>
 		<div class="row" style="border: none;">
         <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-yellow">
@@ -148,7 +149,9 @@
 		        },
 		        getDetailed: function(){
 		        	console.log("自动刷新~");
-		        	var data = "deptId=1&groupId=3";
+		        	
+		        	var groupId = $("#groupId").val();
+		        	var data = "deptId=1&groupId="+groupId;
 		        	
 		         	$.ajax({
 		        		type: "GET",
