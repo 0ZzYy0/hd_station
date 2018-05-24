@@ -19,4 +19,6 @@ import org.apache.ibatis.annotations.Mapper;
 public interface StaParamDao extends BaseDao<StaParamEntity> {
 
 	List<StaParamEntity> queryListByParams(Map<String, Object> map);
+	
+	List<Map<String ,Object>> getNewestDetailed(Map<String, Object> map);
 }

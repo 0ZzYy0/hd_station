@@ -3,6 +3,8 @@ package com.one.modules.group.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +18,7 @@ import com.one.common.utils.Query;
 import com.one.common.utils.R;
 import com.one.modules.group.entity.StaWorkGroupEntity;
 import com.one.modules.group.service.StaWorkGroupService;
+import com.one.modules.sys.shiro.ShiroUtils;
 
 
 /**
@@ -102,6 +105,16 @@ public class StaWorkGroupController {
 		List<StaWorkGroupEntity> workGroupList = staWorkGroupService.queryListByDeptId(deptId);
 		
 		return R.ok().put("workGroupList", workGroupList);
+	}
+	
+	/**
+	 * 跳转到group_type
+	 */
+	@RequestMapping("/toGroupType")
+	public String toGroupType(@RequestParam Long groupId,HttpServletRequest request){
+		ShiroUtils.getSession().setAttribute("groupId", request.getParameter("groupId"));
+		
+		return "redirect:/modules/mobile/group_type.html";
 	}
 	
 }

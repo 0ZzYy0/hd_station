@@ -48,17 +48,18 @@
          </div>
          
 	  <div class="box-body">   
+	  <!-- <input type="hidden" id="groupId" value="${Session.groupId}"/> -->
 		<div class="row" style="border: none;">
         <div class="col-lg-3 col-xs-6">
           <div class="small-box bg-yellow">
             <div class="inner">
               <h4>发电机</h4>
-              <p>功率：</p>
-              <p>电压：</p>
-              <p>电流：</p>
-              <p>功率因数：</p>
-              <p>有功功率：</p>
-              <p>无功功率：</p>
+              <p>1</p>
+              <p>2</p>
+              <p>3</p>
+              <p>4</p>
+              <p>5</p>
+              <p>6</p>
             </div>
             <a href="#" class="small-box-footer">
               	更多信息 <i class="fa fa-arrow-circle-right"></i>
@@ -70,13 +71,13 @@
           <div class="small-box bg-green">
             <div class="inner">
               <h4>水轮机</h4>
-              <p>转速：</p>
-              <p>开度：</p>
-              <p>摆度：</p>
-              <p>振动：</p>
-              <p>推力轴瓦温度：</p>
-	          <p>上导温度：</p>
-	          <p>下导温度：</p>
+              <p>7</p>
+              <p>8</p>
+              <p>9</p>
+              <p>10</p>
+              <p>11</p>
+	          <p>12</p>
+	          <p>13</p>
             </div>
             <a href="#" class="small-box-footer">
               	更多信息 <i class="fa fa-arrow-circle-right"></i>
@@ -88,12 +89,12 @@
           <div class="small-box bg-aqua">
             <div class="inner">
               <h4>并网参数</h4>
-              <p>功率：</p>
-              <p>电压：</p>
-              <p>电流：</p>
-              <p>功率因数：</p>
-              <p>有功功率：</p>
-              <p>无功功率：</p>
+              <p>1</p>
+              <p>2</p>
+              <p>3</p>
+              <p>4</p>
+              <p>5</p>
+              <p>6</p>
             </div>
             <a href="#" class="small-box-footer">
               	更多信息 <i class="fa fa-arrow-circle-right"></i>
@@ -105,7 +106,7 @@
           <div class="small-box bg-purple">
             <div class="inner">
               <h4>水位</h4>
-              <p>水位高度：</p>
+              <p>14</p>
             </div>
             <a href="#" class="small-box-footer">
               	更多信息 <i class="fa fa-arrow-circle-right"></i>
@@ -145,10 +146,45 @@
 				},
 				toMyInfo: function(){
 					window.location.href = "${request.contextPath}/baspatient/toMyInfo";
+		        },
+		        getDetailed: function(){
+		        	console.log("自动刷新~");
+		        	var data = "deptId=1&groupId=3";
+		        	
+		         	$.ajax({
+		        		type: "GET",
+		        		url: baseURL + "crewDetailed/getDetailed",
+		        		data: data,
+		        		type : 'post',
+		        		success : function(data) {
+		        			//获得div数组
+		        			var divArray = $(".inner");
+		        			for(var i = 0 ; i < divArray.length ; i++){
+		        				//获得p标签数组
+		        				var pArray = $(divArray[i]).find("p");
+		        				for(var j = 0 ; j < pArray.length ; j++){
+		        					//根据模版匹配对应信息
+		        					for(var x = 0 ; x < data.length ; x++){
+		        						if($(pArray[j]).html() == data[x].type_id){
+		        							$(pArray[j]).text(data[x].type_name + ":" + data[x].param_value);
+		        						}
+		        					}
+		        				}
+		        			}
+		        		}
+		        	});
+		        },
+		        cxtTimer: function(){
+		        	var ref = "";
+		        	ref = setInterval(() => { this.getDetailed(); }, 60*1000);
 		        }
 			},
 			created: function(){
 				this.getUser();
+				this.getDetailed();
+				
+				//启动定时器
+				this.cxtTimer();
 			}
 		});
 		</script>

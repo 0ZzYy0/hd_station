@@ -58,4 +58,10 @@ public class StaParamServiceImpl implements StaParamService {
 		return staParamDao.queryListByParams(map);
 	}
 	
+	@Override
+	public List<Map<String, Object>> getNewestDetailed(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return staParamDao.getNewestDetailed(map);
+	}
+	
 }

@@ -84,4 +84,32 @@
 		 and max(param_date) and param_type in 
 		(select type_id from sta_param_type where group_id = #{groupId} and dept_id = #{deptId})
 	</select>
+	
+	<select id="getNewestDetailed" resultType="map">
+		SELECT
+			spt.type_id,
+			spt.type_name,
+			sp.*
+		FROM
+			sta_param_type spt,
+			(
+				SELECT
+					sp.param_type,
+					sp.param_value,
+					MAX(sp.param_date) param_date
+				FROM
+					sta_param sp
+				WHERE
+					1 = 1
+					AND sp.group_id = #{groupId}
+					AND sp.param_date = (select max(param_date) from sta_param where sp.param_type = param_type)
+				GROUP BY
+					sp.param_type
+			) sp
+		WHERE
+			1 = 1
+		AND spt.type_id = sp.param_type
+		AND spt.dept_id = #{deptId}
+	</select>
+	
 </mapper>

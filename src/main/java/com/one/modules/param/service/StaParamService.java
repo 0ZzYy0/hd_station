@@ -29,4 +29,6 @@ public interface StaParamService {
 	void deleteBatch(Long[] paramIds);
 	
 	List<StaParamEntity> queryListByParams(Map<String, Object> map);
+	
+	List<Map<String , Object>> getNewestDetailed(Map<String, Object> map);
 }
