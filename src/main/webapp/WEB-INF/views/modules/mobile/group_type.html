@@ -148,10 +148,20 @@
 					window.location.href = "${request.contextPath}/baspatient/toMyInfo";
 		        },
 		        getDetailed: function(){
+		        	var deptId;
+		         	$.ajax({
+		        		type: "GET",
+		        		url: "${request.contextPath}/sys/user/info?_"+$.now(),
+		        		async:false,
+		        		//data: data,
+		        		success : function(data) {
+		        			deptId = data.user.deptId;
+		        		}
+		        	});
+		         	
 		        	console.log("自动刷新~");
-		        	
 		        	var groupId = $("#groupId").val();
-		        	var data = "deptId=1&groupId="+groupId;
+		        	var data = "deptId="+deptId+"&groupId="+groupId;
 		        	
 		         	$.ajax({
 		        		type: "GET",
