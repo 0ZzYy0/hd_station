@@ -1,0 +1,271 @@
+.ui-page-theme-a a:visited, html .ui-bar-a a:visited, html .ui-body-a a:visited, html body .ui-group-theme-a a:visited {
+    color: #fff !important;
+}
+.head_wrapper {
+	width: 100% !important;
+	height: 100px !important;
+	background: -webkit-linear-gradient(270deg, rgba(0, 120, 198, 1) 0%, rgba(0, 120, 198, 1) 0%, rgba(0, 157, 209, 1) 100%, rgba(0, 157, 209, 1) 100%) !important;
+	background: -moz-linear-gradient(180deg, rgba(0, 120, 198, 1) 0%, rgba(0, 120, 198, 1) 0%, rgba(0, 157, 209, 1) 100%, rgba(0, 157, 209, 1) 100%) !important;
+	background: linear-gradient(180deg, rgba(0, 120, 198, 1) 0%, rgba(0, 120, 198, 1) 0%, rgba(0, 157, 209, 1) 100%, rgba(0, 157, 209, 1) 100%) !important;
+}
+
+.head_wrapper table {
+	width: 100% !important;
+	height: 100px !important;
+	color: #fff !important;
+	text-shadow: none !important;
+}
+
+.ui-body-a {
+	margin: 0.8em 0 0 !important;
+	border-radius: 0 !important;
+	border: none !important;
+}
+
+.class_tips i.iconfont {
+	margin: 0 2px !important;
+	color: #FF6262 !important;
+	font-size: 22px !important;
+}
+
+.class_tips .class_tips_days {
+	font-size: 28px !important;
+	color: #FF0000 !important;
+	margin: 0 3px !important;
+}
+
+.main {
+	margin: 0 0 0.8em !important;
+}
+
+.main>div:last-child {
+	margin-bottom: 70px !important;
+}
+
+.class_tittle {
+	border: none !important;
+	border-bottom: 1px solid #ccc !important;
+	height: 40px !important;
+	line-height: 40px !important;
+}
+
+.class_tittle i.iconfont {
+	margin: 0 7px 0 3px !important;
+	color: #00B5F2 !important;
+	position: relative !important;
+	top: 3px !important;
+	font-size: 22px !important;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.class_content {
+	margin: 0 auto !important;
+	min-height: 60px !important;
+	padding: 10px !important;
+	display: flex !important;
+	background: #fff !important;
+	border-bottom: 1px solid #f1f1f1 !important;
+}
+
+.class_content .class_time {
+	flex: 2.5 !important;
+	font-size: 14px !important;
+	border-right: 1px solid #f1f1f1 !important;
+	text-align: center !important;
+}
+
+.class_content .class_name {
+	flex: 1.5 !important;
+	padding: 0 0.9em !important;
+}
+
+.class_content .class_name a {
+	color: #666 !important;
+	font-weight: normal !important;
+	display: block !important;
+}
+
+.class_required .cours_name {
+	color: #FF0000 !important;
+	font-size: 16px !important;
+	text-overflow: ellipsis !important;
+	white-space: nowrap !important;
+	width: 10em !important;
+	overflow: hidden !important;
+}
+
+.class_elective .cours_name {
+	font-size: 16px !important;
+	text-overflow: ellipsis !important;
+	white-space: nowrap !important;
+	width: 10em !important;
+	overflow: hidden !important;
+}
+
+.cours_time {
+	font-size: 12px !important;
+	color: #999 !important;
+}
+
+.class_content p {
+	height: 20px !important;
+	line-height: 20px !important;
+}
+
+.class_content .cours_info {
+	color: #999 !important;
+	font-size: 12px !important;
+}
+
+.class_content .stu_num {
+	margin: 2px 0 !important;
+	font-size: 12px !important;
+	color: #999 !important;
+}
+
+.class_content .class_time p:not (.department) {
+	color: #666 !important;
+}
+
+.department {
+	color: #00B5F2 !important;
+}
+
+.class_content .class_function {
+	flex: 1.5 !important;
+	text-align: center !important;
+	color: #666 !important;
+	font-size: 14px !important;
+}
+.class_function .class_state{
+	margin:5px auto !important;
+}
+.class_function .class_state a.sgin {
+	background: #00CE3E !important;
+	background: #00B5F2 !important;
+	display: block !important;
+	width: 100% !important;
+	margin: 0 auto 0 !important;
+	padding: 2px 5px !important;
+	border-radius: 5px !important;
+	color: #fff !important;
+	text-shadow: none !important;
+}
+.TeacherD .class_function .class_state a.sgin {
+	background: #00B5F2 !important;
+	margin: 1em auto !important;
+    padding: 0.5em 0 !important;
+}
+.instructional .class_function .class_state a.sgin {
+	background: #00B5F2 !important;
+	margin: 1em auto !important;
+    padding: 0.5em 0 !important;
+}
+.TeacherD .class_function .class_state a.sgin:hover {
+	transition: all 0.5s linear !important;
+	animation: loginBtnBg .5s 0s linear !important;
+}
+.TeacherD .class_function .class_state a.sgin i{
+	font-size: 22px !important;
+	display: block !important;
+	margin:5% auto 0 !important;
+}
+.class_function .class_state a.al_sgin {
+	background: #00B5F2 !important;
+	display: block !important;
+	width: 70% !important;
+	margin: 0 auto 0 !important;
+	padding: 2px 5px !important;
+	border-radius: 5px !important;
+	color: #fff !important;
+	text-shadow: none !important;
+}
+
+.class_function .class_state_blue a {
+	background: #00B5F2 !important;
+}
+
+.class_wrapper .class_content {
+	border-top: 1px solid #f1f1f1 !important;
+}
+
+.class_wrapper>div>div:first-child {
+	border-top: none !important;
+}
+
+.required_date {
+	margin: 0 5px !important;
+	color: #999 !important;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.class_info_1 p {
+	font-size: 12px !important;
+}
+
+.no_class .class_info_2 {
+	text-align: center !important;
+}
+
+.no_class .class_info_2 i {
+	color: #c9c9c9 !important;
+	font-size: 30px !important;
+	position: relative !important;
+	top: 5px !important;
+}
+
+.no_class .class_info_2 span {
+	color: #FF6262 !important;
+	margin: 0 3px !important;
+	font-size: 18px !important;
+}
+
+.code_content {
+	display: flex !important;
+	display: -webkit-flex !important;
+	display: -ms-flexbox !important;
+	background: #fff !important;
+	border-bottom: 1px solid #F2F2F2 !important;
+}
+
+.code_content>div {
+	flex: 1 !important;
+}
+
+.code_content a {
+	display: block !important;
+	width: 80% !important;
+	margin: 0.5em auto !important;
+	border-radius: 10px !important;
+	background: #00B5F2 !important;
+	color: #fff !important;
+	text-align: center !important;
+	padding: 0 5px !important;
+	height: 30px !important;
+	line-height: 30px !important;
+	font-size: 14px !important;
+}
+
+.sgin_num:hover {
+	transition: all 0.5s linear !important;
+	animation: loginBtnBg .5s 0s linear !important;
+	color: #fff !important;
+}
+.cours_category{
+	color: #00B5F2 !important;
+    border: 1px solid #00B5F2 !important;
+    text-align: center !important;
+    font-size: 12px !important;
+}
+.TeacherD .class_content .class_time  {
+    font-size: 14px !important;
+    border-right: 1px solid #f1f1f1 !important;
+    text-align: center !important;
+    margin: 1em 0 0 0 !important;
+}
+.instructional .class_content .class_time  {
+    margin: 0.5em 0 0 0 !important;
+}
+.Teacher .class_content .class_time,
+.Teacher .class_content .class_name,
+.Teacher .class_content .class_function{
+    margin: 0.5em 0 0 0 !important;
+}

@@ -2,122 +2,151 @@
 <html>
 	<head>
 		<title>首页</title>
-		<#include "/header.html">
+		<#include "/nd2_header.html">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-	    <link rel="stylesheet" href="${request.contextPath}/statics/css/bootstrap.min.css">
-	    <link rel="stylesheet" href="${request.contextPath}/statics/css/font-awesome.min.css">
-	    <link rel="stylesheet" href="${request.contextPath}/statics/css/AdminLTE.min.css">
-	    <link rel="stylesheet" href="${request.contextPath}/statics/css/all-skins.min.css">
-	    
-	    <link rel="stylesheet" href="${request.contextPath}/statics/css/bootstrap-table.min.css">
-		<link rel="stylesheet" href="${request.contextPath}/statics/plugins/treegrid/jquery.treegrid.css">
-		<script src="${request.contextPath}/statics/libs/bootstrap-table.min.js"></script>
-		<script src="${request.contextPath}/statics/plugins/treegrid/jquery.treegrid.min.js"></script>
-		<script src="${request.contextPath}/statics/plugins/treegrid/jquery.treegrid.bootstrap3.js"></script>
-		<script src="${request.contextPath}/statics/plugins/treegrid/jquery.treegrid.extension.js"></script>
-		<script src="${request.contextPath}/statics/plugins/treegrid/tree.table.js"></script>
-	    
-	    
-	    
-		<style type="text/css">
-			.info-box-text {
-				white-space: normal !important;
-			}
-			
-			.btn-app {
-				margin: 10px;
-				border:0px;
-				color:window;
-			}
-		</style>
+<style type="text/css">
+	/* 通配符部分页面出现一次即可 */
+	p {
+		text-shadow: 0 0 0 #fff;
+	}
+	
+	.ui-grid-b>.ui-block-a,
+	.ui-grid-b>.ui-block-b,
+	.ui-grid-b>.ui-block-c {
+		width: 25%;
+		background: #fff;
+	}
+	
+	.ui-grid-b li p i.iconfont {
+		font-size: 24px;
+	}
+	
+	.note_num i {
+		position: relative;
+	}
+	
+	.note_num i.iconfont span {
+		position: absolute;
+		top: -3px;
+		right: -3px;
+		border-radius: 50%;
+		-webkit-border-radius: 50%;
+		-moz-border-radius: 50%;
+		-ms-border-radius: 50%;
+		-o-border-radius: 50%;
+		display: block;
+		width: 15px;
+		text-align: center;
+		height: 15px;
+		line-height: 15px;
+		background: #f0003c;
+		text-shadow: none;
+		color: #fff;
+		font-size: 12px;
+	}
+	
+	.ui-grid-b li a {
+		color: #afafaf !important;
+		background: #fff;
+		border: none;
+		margin: 0;
+		padding: 0;
+	}
+	
+	.ui-grid-b li a p{
+		margin: 0.3em 0;
+		padding: 0;
+	}
+	
+	#footer .ui-btn-active {
+		color: #00B5F2 !important;
+		background: #fff;
+		border: none;
+	}
+	
+	.ui-grid-b .ui-btn {
+		padding: .7em 1em !important;
+	}
+	
+</style>
 	</head>
-
+	
 	<body>
-	<div class="content-wrapper" id="rrapp" style="margin-left: 0px;">
-	<section class="content">
-	<div class="row" style="border: none">
-        <div class="col-md-12">
-           <div class="box box-widget widget-user-2">
-              
-            <div class="widget-user-header bg-aqua">
-            
-           <div class="widget-user-image">
-                <img class="img-circle" :src="user.headImgUrl">
-           </div>
-              <h3 class="widget-user-username">{{user.username}}</h3>
-              <h5 class="widget-user-desc">{{user.deptName}}</h5>
-            </div>
-            
-            <div class="box-footer">
-		<div class="row"  style="border: none;" v-for="item in workGroupList" >
-        
-        <div class="col-lg-12 col-xs-12">
-          <div class="small-box bg-green">
-            <div class="inner">
-              <h4>{{item.groupName}}</h4>
+	<div id="rrapp" data-role="page" data-title="首页">
+		<ul data-role="listview" data-icon="false" style="margin-top: 0px;">
+			<li class="head-li">
+				<img class="ui-thumbnail ui-thumbnail-circular" :src="user.headImgUrl">
+				<h2 class="text-white">{{user.username}}</h2>
+				<p class="text-white">{{user.deptName}}</p>
+			</li>
+		</ul>
+		
+		<div id="mainContainer">
+				<div class="nd2-card card-media-right card-media-small">
+					<div class="card-title" style="padding: 8px 16px;min-height: 6px;">
+						<h4 class="card-primary-title" style="font-size: 18px;">水轮发电机组远程智能平台</h4>
+					</div>
+				</div>
+				
+				<ul id="todolistview" class="clr-bg-white">
+					<li class="li-bottom">
+						<p>
+							<i class="zmdi zmdi-assignment zmd-lg" style="color: #6495ED;"></i>&nbsp;机组信息
+						</p>
+					</li>
+						<li class="li-bottom ui-last-child" v-for="item in workGroupList">
+							<a href="#" @click="goUrl(item.groupId)" data-ajax="false" class="todo ui-btn ui-btn-icon-right ui-icon-carat-r waves-effect waves-button">
+								<p><span style="color: #333;">{{item.groupName}}</span></p>
+							</a>
+						</li>
+				</ul>
+		</div>
 
-              <p>编号：{{item.groupCode}}</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-shopping-cart"></i>
-            </div>
-            <a href="#" class="small-box-footer"  @click="goUrl(item.groupId)">
-              	更多信息 <i class="fa fa-arrow-circle-right"></i>
-            </a>
-          </div>
-        </div>
-        
-      </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      </section>
-      </div>
-      
-      <script src="${request.contextPath}/statics/libs/jquery.min.js"></script>
-	  <script src="${request.contextPath}/statics/libs/vue.min.js"></script>
-	  <script src="${request.contextPath}/statics/libs/router.js"></script>
-	  <script src="${request.contextPath}/statics/libs/bootstrap.min.js"></script>
-	  <script src="${request.contextPath}/statics/libs/app.js"></script>
-	  <script src="${request.contextPath}/statics/plugins/layer/layer.js"></script>
-		<script>
-		$(document).ready(function() {
-		});
-		var vm = new Vue({
-			el:'#rrapp',
-			data:{
-				user:{},
-				workGroupList:[]
-			},
-			methods: {
-				getUser: function(){
-					$.getJSON("${request.contextPath}/sys/user/info?_"+$.now(), function(r){
-						vm.user = r.user;
-						$.getJSON("${request.contextPath}/staworkgroup/listByDept?deptId="+r.user.deptId, function(r){
-							vm.workGroupList = r.workGroupList;
-						});
+		<#include "/footer.html">
+	</div>
+	
+	<script>
+	var vm = new Vue({
+		el:'#rrapp',
+		data:{
+			user:{},
+			workGroupList:[]
+		},
+		methods: {
+			init(){
+				$("#todolistview").listview();
+				$("#001_div").addClass("ui-btn-active");
+		    },
+			getUser: function(){
+				$.getJSON("${request.contextPath}/sys/user/info?_"+$.now(), function(r){
+					vm.user = r.user;
+					$.getJSON("${request.contextPath}/staworkgroup/listByDept?deptId="+r.user.deptId, function(r){
+						vm.workGroupList = r.workGroupList;
 					});
-				},
-				goUrl:function(groupId){
-					//parent.location.href ='group_type.html';
-					window.location.href = "${request.contextPath}/staworkgroup/toGroupType?groupId="+groupId;
-				},
-				toMyInfo: function(){
-					window.location.href = "${request.contextPath}/baspatient/toMyInfo";
-		        },
-		        toMyMemberList: function(){
-		        	window.location.href = "${request.contextPath}/baspatmember/toMyMemberList";
-		        }
+				});
 			},
-			created: function(){
-				this.getUser();
-			}
-		});
-		</script>
+			goUrl:function(groupId){
+				//parent.location.href ='group_type.html';
+				window.location.href = "${request.contextPath}/staworkgroup/toGroupType?groupId="+groupId;
+			},
+			toMyInfo: function(){
+				window.location.href = "${request.contextPath}/baspatient/toMyInfo";
+	        },
+	        toMyMemberList: function(){
+	        	window.location.href = "${request.contextPath}/baspatmember/toMyMemberList";
+	        }
+		},
+		created: function(){
+			this.getUser();
+		},
+		mounted(){
+		    this.init();
+		}
+	});
+	</script>
+	
 	</body>
 </html>

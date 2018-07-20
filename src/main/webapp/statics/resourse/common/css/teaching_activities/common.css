@@ -1,0 +1,403 @@
+﻿@font-face {
+	font-family: 'iconfont';
+	src: url('../font/iconfont.eot');
+	src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'), url('../font/iconfont.woff') format('woff'), url('../font/iconfont.ttf') format('truetype'), url('../font/iconfont.svg#iconfont') format('svg');
+}
+
+.iconfont {
+	font-family: "iconfont" !important;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: normal;
+	/*-webkit-font-smoothing: antialiased;*/
+	/*-webkit-text-stroke-width: 0.2px;*/
+	/*-moz-osx-font-smoothing: grayscale;*/
+}
+
+
+/*======================================================================================================*/
+*{
+	font-family: "microsoft Yahei";
+	font-family: "Microsoft YaHei", "iconfont" !important;
+}
+body {
+	margin: 0;
+	padding: 0;
+	font-family: microsoft Yahei;
+	font-family: "Microsoft YaHei", "iconfont" !important;
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+p,
+th,
+td {
+	margin: 0;
+	padding: 0;
+	font-family: "microsoft yahei";
+}
+
+img {
+	border: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: 14px;
+	font-family: 'microsoft yahei';
+}
+
+input,
+button,
+textarea,
+select,
+optgroup,
+option {
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+}
+
+input,
+button,
+textarea,
+select {
+	*font-size: 100%;
+}
+
+ol,
+ul,
+dl {
+	list-style: none;
+}
+
+:link,
+:visited,
+:active {
+	text-decoration: none;
+}
+
+.clearfix:after {
+	content: "";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.clearfix {
+	zoom: 1;
+}
+
+span {
+	font-family: 'microsoft yahei';
+}
+
+p {
+	font-family: 'microsoft yahei';
+}
+
+a {
+	background-color: transparent;
+	text-decoration: none;
+	cursor: pointer;
+	font-family: 'microsoft yahei';
+}
+
+a:active,
+{
+	outline: 0;
+	text-decoration: none;
+	background: none;
+}
+
+em,
+i {
+	font-style: normal;
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~jquery moile~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+* {
+	font-family: "Microsoft YaHei";
+	text-shadow: 0 0 0 #000000;
+	box-shadow: 0 0 0 #000000;
+	-webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+	-moz-box-shadow: 0 0px 0px rgba(0, 0, 0, .2);
+	box-shadow: 0 0px 0px rgba(0, 0, 0, .2);
+}
+
+.ui-panel-display-reveal {
+	-webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, .15);
+	-moz-box-shadow: inset 0 0px 0px rgba(0, 0, 0, .15);
+	box-shadow: inset 0 0px 0px rgba(0, 0, 0, .15)
+}
+
+.ui-panel-position-right.ui-panel-display-reveal {
+	-webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, .15);
+	-moz-box-shadow: inset 0 0px 0px rgba(0, 0, 0, .15);
+	box-shadow: inset 0 0px 0px rgba(0, 0, 0, .15)
+}
+
+.ui-panel-display-overlay {
+	-webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, .15);
+	-moz-box-shadow: 0 0px 0px rgba(0, 0, 0, .15);
+	box-shadow: 0 0px 0px rgba(0, 0, 0, .15)
+}
+
+.ui-panel-position-right.ui-panel-display-overlay {
+	-webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, .15);
+	-moz-box-shadow: 0 0px 0px rgba(0, 0, 0, .15);
+	box-shadow: 0 0px 0px rgba(0, 0, 0, .15)
+}
+
+.flow {
+	-webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .4);
+	-moz-box-shadow: 0 0 0px rgba(0, 0, 0, .4);
+	box-shadow: 0 0 0px rgba(0, 0, 0, .4)
+}
+
+.ui-loader-verbose {
+	box-shadow: 0 0px 0px 0 #fff;
+}
+
+.ui-noboxshadow .ui-shadow,
+.ui-noboxshadow .ui-shadow-inset,
+.ui-noboxshadow .ui-overlay-shadow,
+.ui-noboxshadow .ui-shadow-icon.ui-btn:after,
+.ui-noboxshadow .ui-shadow-icon .ui-btn:after,
+.ui-noboxshadow .ui-focus,
+.ui-noboxshadow .ui-btn:focus,
+.ui-noboxshadow input:focus,
+.ui-noboxshadow .ui-panel {
+	-webkit-box-shadow: 0 0 0px rgba(0, 0, 0, .4)!important;
+	-moz-box-shadow: 0 0 0px rgba(0, 0, 0, .4)!important;
+	box-shadow: 0 0 0px rgba(0, 0, 0, .4)!important
+}
+
+.ui-page-theme-b .ui-btn:focus,
+html .ui-bar-b .ui-btn:focus,
+html .ui-body-b .ui-btn:focus,
+html body .ui-group-theme-b .ui-btn:focus,
+html head+body .ui-btn.ui-btn-b:focus,
+.ui-page-theme-b .ui-focus,
+html .ui-bar-b .ui-focus,
+html .ui-body-b .ui-focus,
+html body .ui-group-theme-b .ui-focus,
+html head+body .ui-btn-b.ui-focus,
+html head+body .ui-body-b.ui-focus {
+	-webkit-box-shadow: 0 0 0px #2ad;
+	-moz-box-shadow: 0 0 0px #2ad;
+	box-shadow: 0 0 0px #2ad
+}
+
+.ui-page-theme-a .ui-btn:focus,
+html .ui-bar-a .ui-btn:focus,
+html .ui-body-a .ui-btn:focus,
+html body .ui-group-theme-a .ui-btn:focus,
+html head+body .ui-btn.ui-btn-a:focus,
+.ui-page-theme-a .ui-focus,
+html .ui-bar-a .ui-focus,
+html .ui-body-a .ui-focus,
+html body .ui-group-theme-a .ui-focus,
+html head+body .ui-btn-a.ui-focus,
+html head+body .ui-body-a.ui-focus {
+	-webkit-box-shadow: 0 0 0px #38c;
+	-moz-box-shadow: 0 0 0px #38c;
+	box-shadow: 0 0 0px #38c
+}
+
+.ui-shadow-icon.ui-btn:after,
+.ui-shadow-icon .ui-btn:after {
+	-webkit-box-shadow: 0 0px 0 rgba(255, 255, 255, .3);
+	-moz-box-shadow: 0 0px 0 rgba(255, 255, 255, .3);
+	box-shadow: 0 0px 0 rgba(255, 255, 255, .3)
+}
+
+.ui-shadow {
+	-webkit-box-shadow: 0 0px 0 rgba(0, 0, 0, .15);
+	-moz-box-shadow: 0 0px 0 rgba(0, 0, 0, .15);
+	box-shadow: 0 0px 0 rgba(0, 0, 0, .15)
+}
+
+.ui-shadow-inset {
+	-webkit-box-shadow: inset 0 0px 0 rgba(0, 0, 0, .2);
+	-moz-box-shadow: inset 0 0px 0 rgba(0, 0, 0, .2);
+	box-shadow: inset 0 0px 0 rgba(0, 0, 0, .2)
+}
+
+.ui-overlay-shadow {
+	-webkit-box-shadow: 0 0px 0 rgba(0, 0, 0, .6);
+	-moz-box-shadow: 0 0px 0 rgba(0, 0, 0, .6);
+	box-shadow: 0 0px 0 rgba(0, 0, 0, .6)
+}
+
+.ui-page-theme-a .ui-btn.ui-btn-active,
+html .ui-bar-a .ui-btn.ui-btn-active,
+html .ui-body-a .ui-btn.ui-btn-active,
+html body .ui-group-theme-a .ui-btn.ui-btn-active,
+html head+body .ui-btn.ui-btn-a.ui-btn-active,
+.ui-page-theme-a .ui-checkbox-on:after,
+html .ui-bar-a .ui-checkbox-on:after,
+html .ui-body-a .ui-checkbox-on:after,
+html body .ui-group-theme-a .ui-checkbox-on:after,
+.ui-btn.ui-checkbox-on.ui-btn-a:after,
+.ui-page-theme-a .ui-flipswitch-active,
+html .ui-bar-a .ui-flipswitch-active,
+html .ui-body-a .ui-flipswitch-active,
+html body .ui-group-theme-a .ui-flipswitch-active,
+html body .ui-flipswitch.ui-bar-a.ui-flipswitch-active,
+.ui-page-theme-a .ui-slider-track .ui-btn-active,
+html .ui-bar-a .ui-slider-track .ui-btn-active,
+html .ui-body-a .ui-slider-track .ui-btn-active,
+html body .ui-group-theme-a .ui-slider-track .ui-btn-active,
+html body div.ui-slider-track.ui-body-a .ui-btn-active {
+	background-color: #fff;
+	border-color: #fff;
+	color: #00B5F2;
+	text-shadow: 0 0px 0 #059;
+}
+
+.ui-page-theme-a .ui-btn:hover,
+html .ui-bar-a .ui-btn:hover,
+html .ui-body-a .ui-btn:hover,
+html body .ui-group-theme-a .ui-btn:hover,
+html head+body .ui-btn.ui-btn-a {
+	background-color: #fff;
+	border-color: #fff;
+	/* color: #333; */
+	text-shadow: 0 0px 0 #f3f3f3;
+}
+
+.ui-page-theme-a .ui-btn,
+html .ui-bar-a .ui-btn,
+html .ui-body-a .ui-btn,
+html body .ui-group-theme-a .ui-btn,
+html head+body .ui-btn.ui-btn-a,
+.ui-page-theme-a .ui-btn:visited,
+html .ui-bar-a .ui-btn:visited,
+html .ui-body-a .ui-btn:visited,
+html body .ui-group-theme-a .ui-btn:visited,
+html head+body .ui-btn.ui-btn-a:visited {
+	background-color: #fff;
+	border-color: #fff;
+	/* color: #333; */
+	text-shadow: 0 0px 0 #f3f3f3;
+}
+
+.ui-dialog.flow {
+	-webkit-box-shadow: 0 0px 0 #f3f3f3;
+	-moz-box-shadow: 0 0px 0 #f3f3f3;
+	box-shadow:  0 0px 0 #f3f3f3;
+}
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~jquery moile~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+*:not([class*="iconfont"]) {
+	font-family: "Microsoft YaHei";
+}
+
+.ui-grid-b>.ui-block-a,
+.ui-grid-b>.ui-block-b,
+.ui-grid-b>.ui-block-c {
+	width: 25%;
+}
+
+.note_num i {
+	position: relative;
+}
+
+.note_num i.iconfont span {
+	position: absolute;
+	top: -3px;
+	right: -3px;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	display: block;
+	width: 15px;
+	text-align: center;
+	height: 15px;
+	line-height: 15px;
+	background: #f0003c;
+	text-shadow: none;
+	color: #fff;
+	font-size: 12px;
+}
+
+.ui-grid-b li p i.iconfont {
+	font-size: 24px;
+}
+
+.clear {
+	clear: both;
+}
+
+.class_none {
+	display: none;
+}
+
+.class_hidden {
+	visibility: hidden;
+}
+
+.ui-page-theme-a #footer a {
+	font-weight: normal;
+}
+
+#footer .ui-btn {
+	padding: .7em 1em;
+}
+
+
+/*====================================================================================================*/
+
+@keyframes bg {
+	0% {
+		background: #fff;
+	}
+	50% {
+		background: rgba(204, 204, 204, 0.3);
+	}
+	100% {
+		background: #fff;
+	}
+}
+
+@keyframes loginBtnBg {
+	0% {
+		background: #00B5F2;
+	}
+	50% {
+		background-color: rgba(22, 155, 213, 1);
+	}
+	100% {
+		background: #00B5F2;
+	}
+}

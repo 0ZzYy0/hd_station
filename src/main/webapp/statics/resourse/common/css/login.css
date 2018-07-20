@@ -1,0 +1,97 @@
+@charset "utf-8";
+
+.bg {
+	background: -webkit-linear-gradient(left, #49b7b4, #bdcc8b);
+	/* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(left, #49b7b4, #bdcc8b);
+	/* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(#49b7b4, #bdcc8b);
+	/* Firefox 3.6 - 15 */
+	background: linear-gradient(left, #49b7b4, #bdcc8b); /* 标准的语法 */
+	color: #FFF;
+	height: 100%;
+}
+
+.top {
+	height: 150px;
+	margin: 0 auto;
+	background-size: 90px 120px;
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	text-align: center;
+	margin-top: 50px;
+}
+
+.login {
+	height: 150px;
+	margin-top: 10px;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+input {
+	box-sizing: border-box;
+	height: 45px;
+	width: 100%;
+	border: 0;
+	color: #A9A9A9;
+	margin-top: 20px;
+	padding-left: 20px;
+	outline: none;
+	background-size: 20px 20px;
+	background-position: 5px center;
+	background-repeat: no-repeat;
+	border-radius: 0 30px 30px 0;
+}
+
+.sign {
+	height: 40px;
+	margin-left: 5%;
+	margin-right: 5%;
+	border-radius: 5px;
+	font-size: 18px;
+	color: #64bda4;
+	background-color: #d7ead5;
+	line-height: 40px;
+	text-align: center;
+	border-radius: 30px;
+	font-family: YouYuan;
+}
+
+.text {
+	height: 50px;
+	color: #FFF;
+	margin: 0 auto;
+	text-align: center;
+	line-height: 50px;
+	font-family: YouYuan;
+	font-size: 16px;
+}
+
+.letf {
+	height: 45px;
+}
+
+.left1 {
+	box-sizing: border-box;
+	height: 45px;
+	width: 15%;
+	border: 0;
+	line-height: 45px;
+	font-family: YouYuan;
+	background: #FFF;
+	color: #64bda4;
+	margin-top: 20px;
+	text-align: right;
+	outline: none;
+	background-size: 20px 20px;
+	background-position: 5px center;
+	background-repeat: no-repeat;
+	border-radius: 30px 0 0 30px;
+	float: left;
+}
+
+.left2 {
+	width: 85%;
+	float: left;
+}

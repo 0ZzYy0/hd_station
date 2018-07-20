@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>机组详细</title>
+		<title>数据明细</title>
 		<#include "/nd2_header.html">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
@@ -10,64 +10,30 @@
 	</head>
 
 <body>
-	<div id="rrapp" data-role="main" class="ui-content" data-inset="false" data-title="机组详细">
+	<div id="rrapp" data-role="main" class="ui-content" data-inset="false" data-title="数据明细">
 	  <input id="groupId" type="hidden" class="form-control" value="${Session.groupId}"/>
-		<!-- menu -->
-		<!-- <div data-role="panel" id="menu" class="ui-bottom-sheet" data-animate="false" data-position='bottom' data-display="overlay">
-			<div class='row around-xs'>
-				<div class='col-xs-auto'>
-					<a class='ui-bottom-sheet-link ui-btn ui-btn-inline waves-effect waves-button waves-effect waves-button' data-ajax='false' onclick="showHistory()">
-						<i class="fa fa-history fa-2x" aria-hidden="true"></i><strong>历史评价</strong>
-					</a>
-				</div>
-			</div>
-		</div> -->
 	
 		<!-- 头部导航header -->
 		<div data-role="header" data-position="fixed" class="head-li">
 			<a href="#" class="ui-btn ui-btn-left" @click="goUrl"><i class="zmdi zmdi-arrow-back zmd-lg zmd-lg"></i></a>
-			<h1>机组详细</h1>
-			<!-- <a href="#menu" class="ui-btn ui-btn-right right-top-btn"><i class="zmdi zmdi-more-vert zmd-lg"></i></a> -->
+			<h1>数据明细</h1>
 		</div>
 		
 		<!-- content -->
-		<div class="nd2-card card-media-right card-media-small" @click="showDetailData">
-			<div class="card-title">
-				<h3 class="card-primary-title">水力系统</h3>
-				<h5 class="card-subtitle" typeId="7"></h5>
-				<h5 class="card-subtitle" typeId="8"></h5>
-				<h5 class="card-subtitle" typeId="9"></h5>
-				<h5 class="card-subtitle" typeId="10"></h5>
-				<h5 class="card-subtitle" typeId="11"></h5>
-				<h5 class="card-subtitle" typeId="12"></h5>
-				<h5 class="card-subtitle" typeId="13"></h5>
-			</div>
-		</div>
-		
-		<div class="nd2-card card-media-right card-media-small" @click="showDetailData">
-			<div class="card-title">
-				<h3 class="card-primary-title">发电机</h3>
-				<h5 class="card-subtitle" typeId="1"></h5>
-				<h5 class="card-subtitle" typeId="2"></h5>
-				<h5 class="card-subtitle" typeId="3"></h5>
-				<h5 class="card-subtitle" typeId="4"></h5>
-				<h5 class="card-subtitle" typeId="5"></h5>
-				<h5 class="card-subtitle" typeId="6"></h5>
-			</div>
-		</div>
-		
-		<div class="nd2-card card-media-right card-media-small" @click="showDetailData">
-			<div class="card-title">
-				<h3 class="card-primary-title">机组振动</h3>
-				<h5 class="card-subtitle" typeId="14"></h5>
-			</div>
-		</div>
-		
-		<div class="nd2-card card-media-right card-media-small" @click="showDetailData">
-			<div class="card-title">
-				<h3 class="card-primary-title">机组轴承</h3>
-			</div>
-		</div>		
+			<ol data-role="listview" data-icon="false" class="ui-listview">
+				<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-inherit ui-first-child">
+					水力系统
+				</li>
+				<li class="ui-li-static ui-body-inherit">励磁电流</li>
+				<li class="ui-li-static ui-body-inherit">励磁电压</li>
+				<li class="ui-li-static ui-body-inherit">水温</li>
+				<li class="ui-li-static ui-body-inherit">水位</li>
+				<li class="ui-li-static ui-body-inherit">流量</li>
+				<li class="ui-li-static ui-body-inherit">高程</li>
+				<li class="ui-li-static ui-body-inherit">额定转速</li>
+				<li class="ui-li-static ui-body-inherit">有功功率</li>
+				<li class="ui-li-static ui-body-inherit ui-last-child">无功功率</li>
+			</ol>	
 	</div>
 		<script>
 		$(document).ready(function() {
@@ -84,11 +50,7 @@
 					});
 				},
 				goUrl:function(){
-					parent.location.href ='home.html';
-				},
-				showDetailData:function(groupId){
-					//window.location.href = "${request.contextPath}/crewDetailed/showDetailData?groupId="+groupId;
-					parent.location.href ='group_data_detail.html';
+					parent.location.href ='group_type.html';
 				},
 				toMyInfo: function(){
 					window.location.href = "${request.contextPath}/baspatient/toMyInfo";
