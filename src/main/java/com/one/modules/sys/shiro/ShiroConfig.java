@@ -78,6 +78,7 @@ public class ShiroConfig {
         filterMap.put("/modules/mobile/home.html", "anon");
         filterMap.put("/modules/param/param_demo.html", "anon");
         filterMap.put("/modules/mobile/mobile_login.html", "anon");
+        filterMap.put("/staparam/save", "anon");
         filterMap.put("/**", "authc");
         shiroFilter.setFilterChainDefinitionMap(filterMap);
 

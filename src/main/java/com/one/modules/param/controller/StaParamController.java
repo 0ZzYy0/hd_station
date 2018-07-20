@@ -66,10 +66,11 @@ public class StaParamController {
 	 * 保存
 	 */
 	@RequestMapping("/save")
-	@RequiresPermissions("staparam:save")
+	//@RequiresPermissions("staparam:save")
 	public R save(@RequestBody StaParamEntity staParam){
+		System.out.println("服务器访问成功");
 		staParamService.save(staParam);
-		
+		System.out.println("存储完成");
 		return R.ok();
 	}
 	
